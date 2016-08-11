@@ -1,17 +1,34 @@
 package com.pardot.sample.tests;
 
+import com.api.Reporting;
 import com.generic.RandomData;
 import com.pardot.sample.tests.bb.PardotTest_BB;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import com.api.Selenium;
 
 import java.util.Hashtable;
 
 public class PardotTest {
-    private PardotTest_BB bb = new PardotTest_BB();
-    private RandomData rand = new RandomData();
+    private static PardotTest_BB bb;
+    private static RandomData rand;
+    private static Reporting reporting;
 
     private Selenium selenium;
+
+    @BeforeClass
+    public static void runBeforeAll(){
+        reporting = new Reporting();
+        bb = new PardotTest_BB(reporting);
+        rand = new RandomData();
+    }
+
+    @AfterClass
+    public static void runAfterAll(){
+        reporting.endTest();
+        reporting.flush();
+    }
 
     @Test
     public void pardotCreateSegmentationList() throws InterruptedException {
@@ -28,7 +45,7 @@ public class PardotTest {
         options.put("ListName", listName);
         options.put("IsDuplicate", false);
 
-        System.out.println("*** Create New Segmentation List");
+        reporting.writeInfo("*** Create New Segmentation List");
         selenium = bb.addSegmentationList(options);
 
         //3.	Attempt to create another list with that same name and ensure the system correctly gives a validation failure
@@ -39,7 +56,7 @@ public class PardotTest {
         options.put("ListName", listName);
         options.put("IsDuplicate", true);
 
-        System.out.println("*** Attempt to Create Duplicate Segmentation List");
+        reporting.writeInfo("*** Attempt to Create Duplicate Segmentation List");
         selenium = bb.addSegmentationList(options);
 
         String originalListName = listName;
@@ -54,7 +71,7 @@ public class PardotTest {
         options.put("ListName", listName);
         options.put("IsDuplicate", false);
 
-        System.out.println("*** Rename Segmentation List");
+        reporting.writeInfo("*** Rename Segmentation List");
         selenium = bb.editSegmentationList(options);
 
         //5.	Ensure the system allows the creation of another list with the original name now that the original list is renamed
@@ -65,7 +82,7 @@ public class PardotTest {
         options.put("ListName", originalListName);
         options.put("IsDuplicate", false);
 
-        System.out.println("*** Create Segmentation List After Original List Rename");
+        reporting.writeInfo("*** Create Segmentation List After Original List Rename");
         selenium = bb.addSegmentationList(options);
 
         String email = rand.getRandomStringAlpha(10) + "@" + rand.getRandomStringAlpha(10) + ".com";
@@ -84,7 +101,7 @@ public class PardotTest {
         options.put("Score", score);
         options.put("ListName", listName);
 
-        System.out.println("*** Create New Prospect and Assign to Newly Created Segmentation List");
+        reporting.writeInfo("*** Create New Prospect and Assign to Newly Created Segmentation List");
         selenium = bb.createProspect(options);
 
         String emailName = rand.getRandomStringAlpha(10);
@@ -108,7 +125,7 @@ public class PardotTest {
         options.clear();
         options.put("Selenium", selenium);
 
-        System.out.println("*** Sign Out of Perdot and Close Browser");
+        reporting.writeInfo("*** Sign Out of Perdot and Close Browser");
         selenium = bb.signOut(options);
         bb.closeBrowser(options);
     }

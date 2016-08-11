@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Selenium {
-    public WebDriver wd;
+    private WebDriver wd;
     private Actions action;
     private WebDriverWait wait;
 
@@ -113,23 +113,15 @@ public class Selenium {
         }
     }
 
+
+
+
+
+
+
     public WebElement findElement(By locator) {
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-        } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
-            cleanup();
-            throw e;
-        }
-    }
-
-    public WebElement isElementClickable(By locator) {
-        return isElementClickable(findElement(locator));
-    }
-
-    public WebElement isElementClickable(WebElement element) {
-        try {
-            return wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (WebDriverException e) {
             System.err.println("WebDriverException: " + e.getMessage());
             cleanup();
@@ -171,6 +163,52 @@ public class Selenium {
         try {
             return element.findElements(childLocator);
             //return wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(element, childLocator));
+        } catch (WebDriverException e) {
+            System.err.println("WebDriverException: " + e.getMessage());
+            cleanup();
+            throw e;
+        }
+    }
+
+
+
+    public String getText(By locator) {
+        return getText(findElement(locator));
+    }
+
+    public String getText(WebElement element) {
+        try {
+            return element.getText();
+        } catch (WebDriverException e) {
+            System.err.println("WebDriverException: " + e.getMessage());
+            cleanup();
+            throw e;
+        }
+    }
+
+    public String getAttribute(By locator, String attribute) {
+        return getAttribute(findElement(locator), attribute);
+    }
+
+    public String getAttribute(WebElement element, String attribute) {
+        try {
+            return element.getAttribute(attribute);
+        } catch (WebDriverException e) {
+            System.err.println("WebDriverException: " + e.getMessage());
+            cleanup();
+            throw e;
+        }
+    }
+
+
+
+    public WebElement isElementClickable(By locator) {
+        return isElementClickable(findElement(locator));
+    }
+
+    public WebElement isElementClickable(WebElement element) {
+        try {
+            return wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (WebDriverException e) {
             System.err.println("WebDriverException: " + e.getMessage());
             cleanup();
@@ -277,33 +315,7 @@ public class Selenium {
         }
     }
 
-    public String getText(By locator) {
-        return getText(findElement(locator));
-    }
 
-    public String getText(WebElement element) {
-        try {
-            return element.getText();
-        } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
-            cleanup();
-            throw e;
-        }
-    }
-
-    public String getAttribute(By locator, String attribute) {
-        return getAttribute(findElement(locator), attribute);
-    }
-
-    public String getAttribute(WebElement element, String attribute) {
-        try {
-            return element.getAttribute(attribute);
-        } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
-            cleanup();
-            throw e;
-        }
-    }
 
     public void waitElementInvisible(By locator) {
         try {

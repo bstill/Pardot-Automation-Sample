@@ -1,5 +1,6 @@
 package com.pardot.sample.tests.bb;
 
+import com.api.Reporting;
 import com.api.Selenium;
 import com.browser.PardotBrowser;
 import com.pardot.dashboard.PardotDashboard;
@@ -17,6 +18,9 @@ import com.pardot.marketing.segmentation.lists.list.PardotSegmentationList;
 import com.pardot.marketing.segmentation.lists.listInformation.PardotListInformation;
 import com.pardot.marketing.segmentation.lists.listInformation.selectFolder.PardotSelectFolder;
 import com.pardot.marketing.segmentation.lists.PardotSegmentationLists;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+
 import java.util.Hashtable;
 
 import static junit.framework.TestCase.assertTrue;
@@ -26,6 +30,7 @@ public class PardotTest_BB {
     private String pardotPassword = "Applicant2012";
     private String pardotUrl = "https://pi.pardot.com";
     private Selenium selenium;
+    private Reporting reporting;
 
     private PardotBrowser browser = new PardotBrowser();
     private PardotLogin login = new PardotLogin();
@@ -43,6 +48,10 @@ public class PardotTest_BB {
     private PardotSelectCampaign selectCampaign = new PardotSelectCampaign();
     private PardotEmailBuilding emailBuilding = new PardotEmailBuilding();
     private PardotEmailSending emailSending = new PardotEmailSending();
+
+    public PardotTest_BB (Reporting reporting) {
+        this.reporting = reporting;
+    }
 
     //Sign Out of the app
     //10.	Log out
