@@ -18,26 +18,26 @@ public class PardotLogin {
     }
 
     public void isLogInPageLoaded(Selenium selenium) {
-        reporting.writeInfo("  -> Verify Sign In Page Loaded");
+        reporting.writeInfo("..-> Verify Sign In Page Loaded");
 
-        reporting.writeInfo("    -> Verify Sign In Page Title is: " + pageTitleText);
+        reporting.writeInfo("....-> Verify Sign In Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("      -> Page Title Found");
+            reporting.writePass("......-> Page Title Found");
         }
     }
 
     public void loginPardot(Selenium selenium, String userName, String password) {
-        reporting.writeInfo("  -> Perform Log In");
+        reporting.writeInfo("..-> Perform Log In");
 
-        reporting.writeInfo("    -> Enter Email/Username: " + userName  );
+        reporting.writeInfo("....-> Enter Email/Username: " + userName  );
         selenium.sendKeys(By.id(emailAddressFieldId), userName);
 
-        reporting.writeInfo("    -> Enter Password");
+        reporting.writeInfo("....-> Enter Password");
         selenium.sendKeys(By.id(passwordFieldId), password);
 
-        reporting.writeInfo("    -> Click Log In Button");
+        reporting.writeInfo("....-> Click Log In Button");
         selenium.click(By.name(logInButtonName));
     }
 

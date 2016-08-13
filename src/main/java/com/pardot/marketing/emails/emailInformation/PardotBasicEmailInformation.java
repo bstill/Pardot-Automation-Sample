@@ -27,33 +27,33 @@ public class PardotBasicEmailInformation {
     }
 
     public void isBasicEmailInformationModalLoaded(Selenium selenium) {
-        reporting.writeInfo("  -> Verify Email Information Loaded");
+        reporting.writeInfo("..-> Verify Email Information Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("    -> Verify Email Information Modal Title is: " + modalTitleText);
+        reporting.writeInfo("....-> Verify Email Information Modal Title is: " + modalTitleText);
         if (!selenium.getText(By.id(listInformationModalTitleId)).contains(modalTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + modalTitleText, true);
         } else {
-            reporting.writePass("      -> Page Title Found");
+            reporting.writePass("......-> Page Title Found");
         }
     }
 
     public void createEmail(Selenium selenium, String emailName, String emailType, Boolean useEmailTemplate) {
-        reporting.writeInfo("  -> Create Email");
+        reporting.writeInfo("..-> Create Email");
 
-        reporting.writeInfo("    -> Enter Email Name: " + emailName);
+        reporting.writeInfo("....-> Enter Email Name: " + emailName);
         selenium.clear(By.name(nameFieldName));
         selenium.sendKeys(By.name(nameFieldName), emailName);
 
-        reporting.writeInfo("    -> Select Email Type: " + emailType);
+        reporting.writeInfo("....-> Select Email Type: " + emailType);
         if (emailType.equals("Text")) {
             selenium.click(By.id(emailTypeTextId));
         } else {
             selenium.click(By.id(emailTypeHtmlId));
         }
 
-        reporting.writeInfo("    -> Select Use Email Template: " + useEmailTemplate.toString());
+        reporting.writeInfo("....-> Select Use Email Template: " + useEmailTemplate.toString());
         if (useEmailTemplate) {
             if (!selenium.isSelected(By.id(useEmailTemplateName))) {
                 selenium.click(By.id(useEmailTemplateName));
@@ -66,35 +66,35 @@ public class PardotBasicEmailInformation {
     }
 
     public void clickSaveButton(Selenium selenium) {
-        reporting.writeInfo("  -> Save Basic Email Information");
+        reporting.writeInfo("..-> Save Basic Email Information");
         selenium.click(By.id(saveEmailButtonId));
     }
 
     public void clickChooseFolderButton(Selenium selenium) {
-        reporting.writeInfo("  -> Save Basic Email Information");
+        reporting.writeInfo("..-> Save Basic Email Information");
         selenium.click(By.xpath(chooseFolderButtonXpath));
     }
 
     public void isFolderSelected(Selenium selenium, String folderName) {
-        reporting.writeInfo("  -> Verify Folder Field Contains Selected Folder: /" + folderName);
+        reporting.writeInfo("..-> Verify Folder Field Contains Selected Folder: /" + folderName);
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
             selenium.throwRuntimeException("Folder Name is Not: /" + folderName, true);
         } else {
-            reporting.writePass("    -> Folder Found");
+            reporting.writePass("....-> Folder Found");
         }
     }
 
     public void clickChooseCampaignButton(Selenium selenium) {
-        reporting.writeInfo("  -> Save Basic Email Information");
+        reporting.writeInfo("..-> Save Basic Email Information");
         selenium.click(By.xpath(chooseCampaignButtonXpath));
     }
 
     public void isCampaignSelected(Selenium selenium, String campaignName) {
-        reporting.writeInfo("  -> Verify Campaign Field Contains Selected Campaign: " + campaignName);
+        reporting.writeInfo("..-> Verify Campaign Field Contains Selected Campaign: " + campaignName);
         if (!selenium.getText(By.xpath(campaignFieldXpath)).equals(campaignName)) {
             selenium.throwRuntimeException("Campaign Name is Not: " + campaignName, true);
         } else {
-            reporting.writePass("    -> Campaign Found");
+            reporting.writePass("....-> Campaign Found");
         }
     }
 

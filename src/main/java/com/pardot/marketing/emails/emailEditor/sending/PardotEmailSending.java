@@ -32,61 +32,61 @@ public class PardotEmailSending {
     }
 
     public void isEmailSendingPageLoaded(Selenium selenium, String emailName) {
-        reporting.writeInfo("  -> Verify Email Sending Page Loaded");
+        reporting.writeInfo("..-> Verify Email Sending Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("    -> Verify Email Sending Page Title Contains: " + pageTitleText);
+        reporting.writeInfo("....-> Verify Email Sending Page Title Contains: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("      -> Page Title Found");
+            reporting.writePass("......-> Page Title Found");
         }
 
-        reporting.writeInfo("    -> Verify Email Name is: " + emailName);
+        reporting.writeInfo("....-> Verify Email Name is: " + emailName);
         if (!selenium.getText(By.id(emailNameHeaderId)).contains(emailName)) {
             selenium.throwRuntimeException("Email Name is Not: " + emailName, true);
         } else {
-            reporting.writePass("      -> Email Name Found");
+            reporting.writePass("......-> Email Name Found");
         }
     }
 
     public void clickSendNowButton(Selenium selenium) {
-        reporting.writeInfo("  -> Click Send Now Button");
+        reporting.writeInfo("..-> Click Send Now Button");
 
-        reporting.writeInfo("    -> *Email Functionality Disabled");
+        reporting.writeInfo("....-> *Email Functionality Disabled");
         selenium.click(By.linkText(sendNowButtonName));
     }
 
     public void enterEmailToFrom(Selenium selenium, String listName, String sender, String subject) {
-        reporting.writeInfo("  -> Enter Email To/From/Subject Data");
+        reporting.writeInfo("..-> Enter Email To/From/Subject Data");
 
-        reporting.writeInfo("    -> Enter To: " + listName);
-        reporting.writeInfo("      -> Open List Dropdown");
+        reporting.writeInfo("....-> Enter To: " + listName);
+        reporting.writeInfo("......-> Open List Dropdown");
         selenium.click(selenium.findChildElement(selenium.findElement(By.id(listsDropdownId)), By.tagName("b")));
 
-        reporting.writeInfo("      -> Search for List: " + listName);
+        reporting.writeInfo("......-> Search for List: " + listName);
         selenium.sendKeys(selenium.findChildElement(selenium.findElement(By.className(listsSearchDivClass)), By.tagName("input")), listName);
 
-        reporting.writeInfo("      -> Select List");
+        reporting.writeInfo("......-> Select List");
         selenium.doubleClick(By.className(listsSearchResultsDropdownClass));
         isListExist(selenium, listName);
 
-        reporting.writeInfo("    -> Enter From: " + sender);
+        reporting.writeInfo("....-> Enter From: " + sender);
         selenium.selectByVisibleText(By.name(senderSelectName), sender);
 
-        reporting.writeInfo("    -> Enter Subject: " + subject);
+        reporting.writeInfo("....-> Enter Subject: " + subject);
         selenium.clear(By.name(subjectFieldName));
         selenium.sendKeys(By.name(subjectFieldName), subject);
     }
 
     public void isListExist(Selenium selenium, String listName) {
-        reporting.writeInfo("      -> Verify List Added to Email To Field: " + listName);
+        reporting.writeInfo("......-> Verify List Added to Email To Field: " + listName);
         List<WebElement> elements = selenium.findElements(By.className(listsSelectedContainerClass), By.tagName("li"));
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writePass("        -> Found List");
+                reporting.writePass("........-> Found List");
                 return;
             }
         }

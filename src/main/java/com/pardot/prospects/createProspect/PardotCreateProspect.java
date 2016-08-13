@@ -38,49 +38,49 @@ public class PardotCreateProspect {
     }
 
     public void isCreateProspectPageLoaded(Selenium selenium) {
-        reporting.writeInfo("  -> Verify Create Prospect Page Loaded");
+        reporting.writeInfo("..-> Verify Create Prospect Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("    -> Verify Create Prospect Page Title is: " + pageTitleText);
+        reporting.writeInfo("....-> Verify Create Prospect Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("      -> Page Title Found");
+            reporting.writePass("......-> Page Title Found");
         }
 
-        reporting.writeInfo("    -> Verify Lists Page Sub Title is: " + pageSubTitleText);
+        reporting.writeInfo("....-> Verify Lists Page Sub Title is: " + pageSubTitleText);
         if (!selenium.getText(By.xpath(createProspectPageSubTitleXpath)).equals(pageSubTitleText)) {
             selenium.throwRuntimeException("Page Sub Title is Not: " + pageSubTitleText, true);
         } else {
-            reporting.writePass("      -> Page Sub Title Found");
+            reporting.writePass("......-> Page Sub Title Found");
         }
     }
 
     public void createProspect(Selenium selenium, String firstName, String lastName, String email, String score, String listName) {
-        reporting.writeInfo("  -> Create a New Prospect");
+        reporting.writeInfo("..-> Create a New Prospect");
 
-        reporting.writeInfo("    -> Enter First Name: " + firstName);
+        reporting.writeInfo("....-> Enter First Name: " + firstName);
         selenium.clear(By.name(firstNameFieldName));
         selenium.sendKeys(By.name(firstNameFieldName), firstName);
 
-        reporting.writeInfo("    -> Enter Last Name: " + lastName);
+        reporting.writeInfo("....-> Enter Last Name: " + lastName);
         selenium.clear(By.name(lastNameFieldName));
         selenium.sendKeys(By.name(lastNameFieldName), lastName);
 
-        reporting.writeInfo("    -> Enter Email: " + email);
+        reporting.writeInfo("....-> Enter Email: " + email);
         selenium.clear(By.name(emailFieldName));
         selenium.sendKeys(By.name(emailFieldName), email);
 
-        reporting.writeInfo("    -> Select Random Campaign from Current Group");
+        reporting.writeInfo("....-> Select Random Campaign from Current Group");
         List<WebElement> elements = selenium.findElements(By.name(campaignDropdownName), By.tagName("optgroup"));
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "label").equals("Current")) {
-                reporting.writeInfo("      -> Found Current Group");
+                reporting.writeInfo("......-> Found Current Group");
                 List<WebElement> selectOptions = selenium.findElements(e, By.tagName("option"));
 
-                reporting.writeInfo("      -> Select Campaign");
+                reporting.writeInfo("......-> Select Campaign");
                 selenium.click(By.name(campaignDropdownName));
 
                 selenium.switchToWindow();
@@ -90,10 +90,10 @@ public class PardotCreateProspect {
             }
         }
 
-        reporting.writeInfo("    -> Select Random Profile");
+        reporting.writeInfo("....-> Select Random Profile");
         elements = selenium.findElements(By.name(profileDropdownName), By.tagName("option"));
 
-        reporting.writeInfo("      -> Select Profile");
+        reporting.writeInfo("......-> Select Profile");
         selenium.click(By.name(profileDropdownName));
 
         Integer rand;
@@ -105,33 +105,33 @@ public class PardotCreateProspect {
             selenium.doubleClick(elements.get(rand));
         } while (rand == 0);
 
-        reporting.writeInfo("    -> Enter Score: " + score);
+        reporting.writeInfo("....-> Enter Score: " + score);
         selenium.clear(By.name(scoreFieldName));
         selenium.sendKeys(By.name(scoreFieldName), score);
 
-        reporting.writeInfo("    -> Toggle List Selection Section");
+        reporting.writeInfo("....-> Toggle List Selection Section");
         selenium.click(By.id(listsToggleButtonId));
 
-        reporting.writeInfo("    -> Open List Dropdown");
+        reporting.writeInfo("....-> Open List Dropdown");
         selenium.click(By.xpath(listsDropdownXpath));
 
-        reporting.writeInfo("    -> Search for List: " + listName);
+        reporting.writeInfo("....-> Search for List: " + listName);
         WebElement search = selenium.findChildElement(By.className(listsSearchDivClass), By.tagName("input"));
         selenium.sendKeys(search, listName);
 
-        reporting.writeInfo("    -> Select List");
+        reporting.writeInfo("....-> Select List");
         selenium.doubleClick(By.className(listsSearchResultsDropdownClass));
 
         isProspectListExist(selenium, listName);
     }
 
     public void isProspectListExist(Selenium selenium, String listName) {
-        reporting.writeInfo("  -> Verify List Added to Prospect: " + listName);
+        reporting.writeInfo("..-> Verify List Added to Prospect: " + listName);
         List<WebElement> elements = selenium.findElements(By.className(listsSelectedContainerClass), By.tagName("li"));
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writePass("    -> Found List");
+                reporting.writePass("....-> Found List");
 
                 return;
             }
@@ -141,7 +141,7 @@ public class PardotCreateProspect {
     }
 
     public void clickCreateProspectButton (Selenium selenium) {
-        reporting.writeInfo("  -> Click Create Prospect Button");
+        reporting.writeInfo("..-> Click Create Prospect Button");
         selenium.click(By.xpath(createProspectCommitButtonXpath));
     }
 

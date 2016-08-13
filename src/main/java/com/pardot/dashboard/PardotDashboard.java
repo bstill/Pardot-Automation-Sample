@@ -27,61 +27,61 @@ public class PardotDashboard {
     }
 
     public void isDashboardPageLoaded(Selenium selenium) {
-        reporting.writeInfo("  -> Verify Dashboard Page Loaded");
+        reporting.writeInfo("..-> Verify Dashboard Page Loaded");
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("    -> Verify Dashboard Page Title is: " + pageTitleText);
+        reporting.writeInfo("....-> Verify Dashboard Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("      -> Page Title Found");
+            reporting.writePass("......-> Page Title Found");
         }
     }
 
     public void clickMarketingEmails(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("  -> Navigate to Marketing\\Emails");
+        reporting.writeInfo("..-> Navigate to Marketing\\Emails");
 
-        reporting.writeInfo("    -> Hover Over Marketing Menu Item");
+        reporting.writeInfo("....-> Hover Over Marketing Menu Item");
         selenium.mouseHover(By.id(marketingMenuId));
 
         Thread.sleep(500);
-        reporting.writeInfo("    -> Click Emails Menu Item");
+        reporting.writeInfo("....-> Click Emails Menu Item");
         selenium.click(By.linkText(marketingEmailsLinkText));
     }
 
     public void clickMarketingSegmentationLists(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("  -> Navigate to Marketing\\Segmentation\\Lists");
+        reporting.writeInfo("..-> Navigate to Marketing\\Segmentation\\Lists");
 
-        reporting.writeInfo("    -> Hover Over Marketing Menu Item");
+        reporting.writeInfo("....-> Hover Over Marketing Menu Item");
         selenium.mouseHover(By.id(marketingMenuId));
 
-        reporting.writeInfo("    -> Hover Over Segmentation Menu Item");
+        reporting.writeInfo("....-> Hover Over Segmentation Menu Item");
         selenium.mouseHover(By.linkText(marketingSegmentationMenuLinkText));
 
         Thread.sleep(500);
-        reporting.writeInfo("    -> Click Lists Menu Item");
+        reporting.writeInfo("....-> Click Lists Menu Item");
         selenium.click(By.linkText(marketingSegmentationListsMenuLinkText));
     }
 
     public void clickProspectsProspectList(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("  -> Navigate to Prospects\\Prospect List");
+        reporting.writeInfo("..-> Navigate to Prospects\\Prospect List");
 
-        reporting.writeInfo("    -> Hover Over Prospects Menu Item");
+        reporting.writeInfo("....-> Hover Over Prospects Menu Item");
         selenium.mouseHover(By.id(prospectsMenuId));
 
         Thread.sleep(500);
-        reporting.writeInfo("    -> Click Prospects List Menu Item");
+        reporting.writeInfo("....-> Click Prospects List Menu Item");
         selenium.click(By.linkText(prospectsProspectListLinkText));
     }
 
     public void signOut(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("  -> Sign Out of Pardot");
+        reporting.writeInfo("..-> Sign Out of Pardot");
 
-        reporting.writeInfo("    -> Hover Over User Account Menu Item");
+        reporting.writeInfo("....-> Hover Over User Account Menu Item");
         selenium.mouseHover(By.id(userAccountMenuDropdownId));
 
         Thread.sleep(500);
-        reporting.writeInfo("    -> Click Sign Out Link");
+        reporting.writeInfo("....-> Click Sign Out Link");
         selenium.click(By.linkText(signOutLinkText));
     }
 

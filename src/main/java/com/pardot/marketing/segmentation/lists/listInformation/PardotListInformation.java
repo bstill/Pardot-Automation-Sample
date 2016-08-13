@@ -25,98 +25,98 @@ public class PardotListInformation {
     }
 
     public void isListInformationModalLoaded(Selenium selenium) {
-        reporting.writeInfo("  -> Verify List Information Loaded");
+        reporting.writeInfo("..-> Verify List Information Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("    -> Verify List Information Modal Title is: " + modalTitleText);
+        reporting.writeInfo("....-> Verify List Information Modal Title is: " + modalTitleText);
         if (!selenium.getText(By.id(listInformationModalTitleId)).equals(modalTitleText)) {
             selenium.throwRuntimeException("Modal Title is Not: " + modalTitleText, true);
         } else {
-            reporting.writePass("      -> Modal Title Found");
+            reporting.writePass("......-> Modal Title Found");
         }
     }
 
     public void isListInformationModalPopulated(Selenium selenium, String listName, String folderName) {
-        reporting.writeInfo("  -> Verify List Information Populated");
+        reporting.writeInfo("..-> Verify List Information Populated");
 
-        reporting.writeInfo("    -> Verify Name Field Value: " + listName);
+        reporting.writeInfo("....-> Verify Name Field Value: " + listName);
         if (!selenium.getAttribute(By.name(nameFieldName), "value").equals(listName)) {
             selenium.throwRuntimeException("Name Field Value is Not: " + listName, true);
         } else {
-            reporting.writePass("      -> Name Found");
+            reporting.writePass("......-> Name Found");
         }
 
-        reporting.writeInfo("    -> Verify Folder Field Value: /" + folderName);
+        reporting.writeInfo("....-> Verify Folder Field Value: /" + folderName);
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
             selenium.throwRuntimeException("Folder Field Value is Not: /" + folderName, true);
         } else {
-            reporting.writePass("      -> Folder Found");
+            reporting.writePass("......-> Folder Found");
         }
     }
 
     public void isListInformationModalNotPopulated(Selenium selenium) {
-        reporting.writeInfo("  -> Verify List Information NOT Populated");
+        reporting.writeInfo("..-> Verify List Information NOT Populated");
 
-        reporting.writeInfo("    -> Verify Name Field Value is Blank");
+        reporting.writeInfo("....-> Verify Name Field Value is Blank");
         if (!selenium.getAttribute(By.name(nameFieldName), "value").equals("")) {
             selenium.throwRuntimeException("Name Field Value is Not Blank", true);
         } else {
-            reporting.writePass("      -> Name Field Blank");
+            reporting.writePass("......-> Name Field Blank");
         }
 
-        reporting.writeInfo("    -> Verify Folder Field Value is Default");
+        reporting.writeInfo("....-> Verify Folder Field Value is Default");
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/Uncategorized/Lists")) {
             selenium.throwRuntimeException("Folder Field Value is Not Default", true);
         } else {
-            reporting.writePass("      -> Folder Field Default");
+            reporting.writePass("......-> Folder Field Default");
         }
     }
 
     public void clickChooseFolderButton(Selenium selenium) {
-        reporting.writeInfo("  -> Click Choose Folder Button");
+        reporting.writeInfo("..-> Click Choose Folder Button");
         selenium.click(By.xpath(chooseFolderButtonXpath));
     }
 
     public void isFolderSelected(Selenium selenium, String folderName) {
-        reporting.writeInfo("  -> Verify Folder Field Contains Selected Folder");
+        reporting.writeInfo("..-> Verify Folder Field Contains Selected Folder");
 
-        reporting.writeInfo("    -> Verify Folder Field Value: /" + folderName);
+        reporting.writeInfo("....-> Verify Folder Field Value: /" + folderName);
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
             selenium.throwRuntimeException("Folder Field Value is Not: /" + folderName, true);
         } else {
-            reporting.writePass("      -> Folder Found");
+            reporting.writePass("......-> Folder Found");
         }
     }
 
     public void createList(Selenium selenium, String listName) {
-        reporting.writeInfo("  -> Create/Edit Segmentation List");
+        reporting.writeInfo("..-> Create/Edit Segmentation List");
 
-        reporting.writeInfo("    -> Enter List Name: " + listName);
+        reporting.writeInfo("....-> Enter List Name: " + listName);
         selenium.clear(By.name(nameFieldName));
         selenium.sendKeys(By.name(nameFieldName), listName);
     }
 
     public void saveList(Selenium selenium) {
-        reporting.writeInfo("  -> Save Segmentation List");
+        reporting.writeInfo("..-> Save Segmentation List");
         selenium.click(By.id(createListButtonId));
     }
 
     public void isListInformationDuplicateNameErrorDisplayed(Selenium selenium) {
-        reporting.writeInfo("  -> Verify List Information Duplicate Name Error Displayed");
+        reporting.writeInfo("..-> Verify List Information Duplicate Name Error Displayed");
 
-        reporting.writeInfo("    -> Verify Header Error Message is: " + createListHeaderErrorText);
+        reporting.writeInfo("....-> Verify Header Error Message is: " + createListHeaderErrorText);
         if (!selenium.getText(By.cssSelector("Div[class*='" + createListErrorHeaderClass + "'")).equals(createListHeaderErrorText)) {
             selenium.throwRuntimeException("Header Error Message is Not: " + createListHeaderErrorText, true);
         } else {
-            reporting.writePass("      -> Header Error Message Found");
+            reporting.writePass("......-> Header Error Message Found");
         }
 
-        reporting.writeInfo("    -> Verify Name Error Message is: " + createListDuplicateErrorText);
+        reporting.writeInfo("....-> Verify Name Error Message is: " + createListDuplicateErrorText);
         if (!selenium.getText(By.id(createListErrorNameId)).equals(createListDuplicateErrorText)) {
             selenium.throwRuntimeException("Name Error Message is Not: " + createListDuplicateErrorText, true);
         } else {
-            reporting.writePass("      -> Name Error Message Found");
+            reporting.writePass("......-> Name Error Message Found");
         }
     }
 
