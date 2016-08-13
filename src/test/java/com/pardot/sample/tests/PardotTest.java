@@ -129,6 +129,7 @@ public class PardotTest {
         options.put("EmailSender", "Account Owner");
         options.put("EmailSubject", emailSubject);
 
+        reporting.writeInfo("*** Send a Marketing Email to Newly Created Segmentation List");
         selenium = bb.sendMarketingListEmail(options);
 
         //10.	Log out
