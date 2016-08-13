@@ -34,7 +34,9 @@ public class PardotSelectFolder {
 
         reporting.writeInfo("    -> Verify Select Folder Modal Title is: " + modalTitleText);
         if (!selenium.getText(By.xpath(selectFolderModalTitleXpath)).equals(modalTitleText)) {
-            selenium.throwRuntimeException("Modal Title is Not: " + modalTitleText + "(" + selenium.getText(By.xpath(selectFolderModalTitleXpath)) + ")");
+            selenium.throwRuntimeException("Modal Title is Not: " + modalTitleText + "(" + selenium.getText(By.xpath(selectFolderModalTitleXpath)) + ")", true);
+        } else {
+            reporting.writePass("      -> Modal Title Found");
         }
     }
 
@@ -51,15 +53,15 @@ public class PardotSelectFolder {
 
         for(WebElement e : elements){
             if (e.getText().equals(folderName)) {
-                reporting.writeInfo("    -> Folder Found");
+                reporting.writePass("    -> Folder Found");
                 return;
             }
         }
 
-        selenium.throwRuntimeException("Folder Not Found: " + folderName);
+        selenium.throwRuntimeException("Folder Not Found: " + folderName, true);
     }
 
-    public void selectFolder(Selenium selenium, String folderName) {
+    public void clickFolder(Selenium selenium, String folderName) {
         reporting.writeInfo("  -> Select Folder");
 
         reporting.writeInfo("    -> Search for Folder");
@@ -78,10 +80,10 @@ public class PardotSelectFolder {
             }
         }
 
-        selenium.throwRuntimeException("Folder Not Found: " + folderName);
+        selenium.throwRuntimeException("Folder Not Found: " + folderName, true);
     }
 
-    public void selectCreateFolderButton(Selenium selenium) {
+    public void clickCreateFolderButton(Selenium selenium) {
         reporting.writeInfo("    -> Click Add Folder Button");
         selenium.click(By.xpath(addFolderButtonXpath));
     }
@@ -97,7 +99,7 @@ public class PardotSelectFolder {
         selenium.click(By.cssSelector("Div[class*='" + addNewFolderSaveButtonClass + "'"));
     }
 
-    public void selectChooseSelectedButton(Selenium selenium) {
+    public void clickChooseSelectedButton(Selenium selenium) {
         reporting.writeInfo("    -> Click Choose Selected Button");
         selenium.click(By.id(chooseSelectedButtonId));
     }

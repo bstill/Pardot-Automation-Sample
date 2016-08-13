@@ -22,7 +22,9 @@ public class PardotLogin {
 
         reporting.writeInfo("    -> Verify Sign In Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 

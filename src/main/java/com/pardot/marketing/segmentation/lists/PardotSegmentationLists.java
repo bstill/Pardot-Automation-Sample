@@ -30,11 +30,13 @@ public class PardotSegmentationLists {
 
         reporting.writeInfo("    -> Verify Sign In Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
-    public void selectAddListButton(Selenium selenium) {
+    public void clickAddListButton(Selenium selenium) {
         reporting.writeInfo("  -> Open List Information");
         reporting.writeInfo("    -> Click Add List Button");
         selenium.click(By.id(addListButtonId));
@@ -53,12 +55,12 @@ public class PardotSegmentationLists {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(listName)) {
-                reporting.writeInfo("    -> List Found");
+                reporting.writePass("    -> List Found");
                 return;
             }
         }
 
-        selenium.throwRuntimeException("List Not Found: " + listName);
+        selenium.throwRuntimeException("List Not Found: " + listName, true);
     }
 
     public void isListNotExist(Selenium selenium, String listName) {
@@ -74,14 +76,14 @@ public class PardotSegmentationLists {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(listName)) {
-                selenium.throwRuntimeException("List Found: " + listName);
+                selenium.throwRuntimeException("List Found: " + listName, true);
             }
         }
 
-        reporting.writeInfo("    -> List Not Found");
+        reporting.writePass("    -> List Not Found");
     }
 
-    public void selectList(Selenium selenium, String listName) {
+    public void clickList(Selenium selenium, String listName) {
         reporting.writeInfo("  -> Select List");
 
         reporting.writeInfo("    -> Search for List");

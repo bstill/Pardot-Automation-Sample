@@ -21,8 +21,6 @@ import com.pardot.marketing.segmentation.lists.PardotSegmentationLists;
 
 import java.util.Hashtable;
 
-import static junit.framework.TestCase.assertTrue;
-
 public class PardotTest_BB {
     private String pardotUsername = "pardot.applicant@pardot.com";
     private String pardotPassword = "Applicant2012";
@@ -90,7 +88,7 @@ public class PardotTest_BB {
         //If no browser is passed in a new browser will be opened and used.
         //This block requires that the browser be at the Dashboard page.
         if (options.get("Selenium") == null) {
-            assertTrue("Browser Initialization: FAILED", (selenium = browser.startBrowser(pardotUrl)) != null);
+            selenium = browser.startBrowser(pardotUrl);
             login.isLogInPageLoaded(selenium);
             login.loginPardot(selenium, pardotUsername, pardotPassword);
         } else {
@@ -99,45 +97,45 @@ public class PardotTest_BB {
         dashboard.isDashboardPageLoaded(selenium);
 
         //Navigate to Marketing Emails page.
-        dashboard.selectMarketingEmails(selenium);
+        dashboard.clickMarketingEmails(selenium);
         emails.isEmailsPageLoaded(selenium);
 
         //Open the Basic Email Information Modal.
-        emails.selectSendListEmailButton(selenium);
+        emails.clickSendListEmailButton(selenium);
         basicEmailInformation.isBasicEmailInformationModalLoaded(selenium);
 
         //Create a New Email
         //  1. Enter the New Basic Email Infromation Form Data.
         basicEmailInformation.createEmail(selenium, (String)options.get("EmailName"), (String)options.get("EmailType"), (Boolean)options.get("UseEmailTemplate"));
         //  2. Select a Folder.
-        basicEmailInformation.selectChooseFolderButton(selenium);
+        basicEmailInformation.clickChooseFolderButton(selenium);
         selectFolder.isSelectFolderModalLoaded(selenium);
         if (!(Boolean)options.get("IsFolderExist")) {
-            selectFolder.selectCreateFolderButton(selenium);
+            selectFolder.clickCreateFolderButton(selenium);
             selectFolder.addNewFolder(selenium, (String)options.get("FolderName"));
         }
-        selectFolder.selectFolder(selenium, (String)options.get("FolderName"));
-        selectFolder.selectChooseSelectedButton(selenium);
+        selectFolder.clickFolder(selenium, (String)options.get("FolderName"));
+        selectFolder.clickChooseSelectedButton(selenium);
         //  3. Verify Folder Selected.
         basicEmailInformation.isBasicEmailInformationModalLoaded(selenium);
         basicEmailInformation.isFolderSelected(selenium, (String)options.get("FolderName"));
         // 4. Select a Campaign.
-        basicEmailInformation.selectChooseCampaignButton(selenium);
+        basicEmailInformation.clickChooseCampaignButton(selenium);
         String campaign;
         selectCampaign.isSelectCampaignModalLoaded(selenium);
         campaign = selectCampaign.selectRandomContainer(selenium);
-        selectCampaign.selectChooseSelectedButton(selenium);
+        selectCampaign.clickChooseSelectedButton(selenium);
         //  5. Verify Campaign Selected.
         basicEmailInformation.isBasicEmailInformationModalLoaded(selenium);
         basicEmailInformation.isCampaignSelected(selenium, campaign);
         //  6. Save Email Information.
-        basicEmailInformation.selectSaveButton(selenium);
+        basicEmailInformation.clickSaveButton(selenium);
 
         //Verify Email Information Building Page Open.
         emailBuilding.isEmailBuildingPageLoaded(selenium, (String)options.get("EmailName"));
 
         //Open Email Sending Page.
-        emailBuilding.selectSendingButton(selenium);
+        emailBuilding.clickSendingButton(selenium);
         emailSending.isEmailSendingPageLoaded(selenium, (String)options.get("EmailName"));
 
         // Enter To/From/Subject Data and Send Email.
@@ -160,7 +158,7 @@ public class PardotTest_BB {
         //If no browser is passed in a new browser will be opened and used.
         //This block requires that the browser be at the Dashboard page.
         if (options.get("Selenium") == null) {
-            assertTrue("Browser Initialization: FAILED", (selenium = browser.startBrowser(pardotUrl)) != null);
+            selenium = browser.startBrowser(pardotUrl);
             login.isLogInPageLoaded(selenium);
             login.loginPardot(selenium, pardotUsername, pardotPassword);
         } else {
@@ -169,11 +167,11 @@ public class PardotTest_BB {
         dashboard.isDashboardPageLoaded(selenium);
 
         //Navigate to the Segmentation Lists page.
-        dashboard.selectMarketingSegmentationLists(selenium);
+        dashboard.clickMarketingSegmentationLists(selenium);
         segmentationLists.isSegmentationListsPageLoaded(selenium);
 
         //Open the Add List Modal.
-        segmentationLists.selectAddListButton(selenium);
+        segmentationLists.clickAddListButton(selenium);
         segmentationListInformation.isListInformationModalLoaded(selenium);
         segmentationListInformation.isListInformationModalNotPopulated(selenium);
 
@@ -181,14 +179,14 @@ public class PardotTest_BB {
         //  1. Add the list name to the List Information Modal.
         segmentationListInformation.createList(selenium, (String)options.get("ListName"));
         //  2. Select a Folder.
-        segmentationListInformation.selectChooseFolderButton(selenium);
+        segmentationListInformation.clickChooseFolderButton(selenium);
         selectFolder.isSelectFolderModalLoaded(selenium);
         if (!(Boolean)options.get("IsFolderExist")) {
-            selectFolder.selectCreateFolderButton(selenium);
+            selectFolder.clickCreateFolderButton(selenium);
             selectFolder.addNewFolder(selenium, (String)options.get("FolderName"));
         }
-        selectFolder.selectFolder(selenium, (String)options.get("FolderName"));
-        selectFolder.selectChooseSelectedButton(selenium);
+        selectFolder.clickFolder(selenium, (String)options.get("FolderName"));
+        selectFolder.clickChooseSelectedButton(selenium);
         //  3. Verify Folder Selected.
         segmentationListInformation.isListInformationModalLoaded(selenium);
         segmentationListInformation.isFolderSelected(selenium, (String)options.get("FolderName"));
@@ -200,7 +198,7 @@ public class PardotTest_BB {
             segmentationListInformation.isListInformationDuplicateNameErrorDisplayed(selenium);
         } else {
             segmentationList.isListPageLoaded(selenium, (String)options.get("ListName"));
-            dashboard.selectMarketingSegmentationLists(selenium);
+            dashboard.clickMarketingSegmentationLists(selenium);
 
             segmentationLists.isSegmentationListsPageLoaded(selenium);
             segmentationLists.isListExist(selenium, (String)options.get("ListName"));
@@ -220,7 +218,7 @@ public class PardotTest_BB {
         //If no browser is passed in a new browser will be opened and used.
         //This block requires that the browser be at the Dashboard page.
         if (options.get("Selenium") == null) {
-            assertTrue("Browser Initialization: FAILED", (selenium = browser.startBrowser(pardotUrl)) != null);
+            selenium = browser.startBrowser(pardotUrl);
             login.isLogInPageLoaded(selenium);
             login.loginPardot(selenium, pardotUsername, pardotPassword);
         } else {
@@ -229,13 +227,13 @@ public class PardotTest_BB {
         dashboard.isDashboardPageLoaded(selenium);
 
         //Navigate to the Segmentation Lists page.
-        dashboard.selectMarketingSegmentationLists(selenium);
+        dashboard.clickMarketingSegmentationLists(selenium);
         segmentationLists.isSegmentationListsPageLoaded(selenium);
 
         //Open the Edit List Modal.
-        segmentationLists.selectList(selenium, (String)options.get("OriginalListName"));
+        segmentationLists.clickList(selenium, (String)options.get("OriginalListName"));
         segmentationList.isListPageLoaded(selenium, (String)options.get("OriginalListName"));
-        segmentationList.selectEditListLink(selenium);
+        segmentationList.clickEditListLink(selenium);
         segmentationListInformation.isListInformationModalLoaded(selenium);
         segmentationListInformation.isListInformationModalPopulated(selenium, (String)options.get("OriginalListName"), (String)options.get("FolderName"));
 
@@ -243,14 +241,14 @@ public class PardotTest_BB {
         //  1. Edit the list name to the List Information Modal.
         segmentationListInformation.createList(selenium, (String)options.get("ListName"));
         //  2. Select a Folder.
-        segmentationListInformation.selectChooseFolderButton(selenium);
+        segmentationListInformation.clickChooseFolderButton(selenium);
         selectFolder.isSelectFolderModalLoaded(selenium);
         if (!(Boolean)options.get("IsFolderExist")) {
-            selectFolder.selectCreateFolderButton(selenium);
+            selectFolder.clickCreateFolderButton(selenium);
             selectFolder.addNewFolder(selenium, (String)options.get("FolderName"));
         }
-        selectFolder.selectFolder(selenium, (String)options.get("FolderName"));
-        selectFolder.selectChooseSelectedButton(selenium);
+        selectFolder.clickFolder(selenium, (String)options.get("FolderName"));
+        selectFolder.clickChooseSelectedButton(selenium);
         //  3. Verify Folder Selected.
         segmentationListInformation.isListInformationModalLoaded(selenium);
         segmentationListInformation.isFolderSelected(selenium, (String)options.get("FolderName"));
@@ -262,7 +260,7 @@ public class PardotTest_BB {
             segmentationListInformation.isListInformationDuplicateNameErrorDisplayed(selenium);
         } else {
             segmentationList.isListPageLoaded(selenium, (String)options.get("ListName"));
-            dashboard.selectMarketingSegmentationLists(selenium);
+            dashboard.clickMarketingSegmentationLists(selenium);
 
             segmentationLists.isSegmentationListsPageLoaded(selenium);
             segmentationLists.isListExist(selenium, (String)options.get("ListName"));
@@ -286,7 +284,7 @@ public class PardotTest_BB {
         //If no browser is passed in a new browser will be opened and used.
         //This block requires that the browser be at the Dashboard page.
         if (options.get("Selenium") == null) {
-            assertTrue("Browser Initialization: FAILED", (selenium = browser.startBrowser(pardotUrl)) != null);
+            selenium = browser.startBrowser(pardotUrl);
             login.isLogInPageLoaded(selenium);
             login.loginPardot(selenium, pardotUsername, pardotPassword);
         } else {
@@ -295,11 +293,11 @@ public class PardotTest_BB {
         dashboard.isDashboardPageLoaded(selenium);
 
         //Navigate to the prospects page.
-        dashboard.selectProspectsProspectList(selenium);
+        dashboard.clickProspectsProspectList(selenium);
         prospects.isProspectsPageLoaded(selenium);
 
         //Select the Add Prospect Button.
-        prospects.selectAddProspectButton(selenium);
+        prospects.clickAddProspectButton(selenium);
         createProspect.isCreateProspectPageLoaded(selenium);
 
         //Create a new Prospect.
@@ -308,21 +306,21 @@ public class PardotTest_BB {
         prospect.isProspectPageLoaded(selenium, options.get("FirstName") + " " + options.get("LastName"));
 
         //Verify the List exists on the Prospect Lists page.
-        prospect.selectListsMenu(selenium);
+        prospect.clickListsMenu(selenium);
         prospectLists.isProspectListsPageLoaded(selenium);
         prospectLists.isProspectListExist(selenium, (String)options.get("ListName"));
 
         //Navigate to the Prospects page.
-        dashboard.selectProspectsProspectList(selenium);
+        dashboard.clickProspectsProspectList(selenium);
         prospects.isProspectsPageLoaded(selenium);
         //Verify the Prospect appears on the Prospects page
         prospects.isProspectExist(selenium, options.get("FirstName") + " " + options.get("LastName"));
 
         //Navigate to the Segmentation List page.
-        dashboard.selectMarketingSegmentationLists(selenium);
+        dashboard.clickMarketingSegmentationLists(selenium);
         segmentationLists.isSegmentationListsPageLoaded(selenium);
         //Verify the Prospect appears in the Segmentation List
-        segmentationLists.selectList(selenium, (String)options.get("ListName"));
+        segmentationLists.clickList(selenium, (String)options.get("ListName"));
         segmentationList.isListPageLoaded(selenium, (String)options.get("ListName"));
         segmentationList.isListProspectExist(selenium, options.get("FirstName") + " " + options.get("LastName"));
 

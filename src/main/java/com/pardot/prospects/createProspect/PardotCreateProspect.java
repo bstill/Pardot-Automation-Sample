@@ -44,12 +44,16 @@ public class PardotCreateProspect {
 
         reporting.writeInfo("    -> Verify Create Prospect Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
 
         reporting.writeInfo("    -> Verify Lists Page Sub Title is: " + pageSubTitleText);
         if (!selenium.getText(By.xpath(createProspectPageSubTitleXpath)).equals(pageSubTitleText)) {
-            selenium.throwRuntimeException("Page Sub Title is Not: " + pageSubTitleText);
+            selenium.throwRuntimeException("Page Sub Title is Not: " + pageSubTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Sub Title Found");
         }
     }
 
@@ -127,13 +131,13 @@ public class PardotCreateProspect {
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writeInfo("    -> Found List");
+                reporting.writePass("    -> Found List");
 
                 return;
             }
         }
 
-        selenium.throwRuntimeException("List Not Added to Prospect: " + listName);
+        selenium.throwRuntimeException("List Not Added to Prospect: " + listName, true);
     }
 
     public void clickCreateProspectButton (Selenium selenium) {

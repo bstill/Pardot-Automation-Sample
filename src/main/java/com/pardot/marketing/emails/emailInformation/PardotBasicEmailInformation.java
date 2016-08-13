@@ -33,7 +33,9 @@ public class PardotBasicEmailInformation {
 
         reporting.writeInfo("    -> Verify Email Information Modal Title is: " + modalTitleText);
         if (!selenium.getText(By.id(listInformationModalTitleId)).contains(modalTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + modalTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + modalTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
@@ -63,12 +65,12 @@ public class PardotBasicEmailInformation {
         }
     }
 
-    public void selectSaveButton(Selenium selenium) {
+    public void clickSaveButton(Selenium selenium) {
         reporting.writeInfo("  -> Save Basic Email Information");
         selenium.click(By.id(saveEmailButtonId));
     }
 
-    public void selectChooseFolderButton(Selenium selenium) {
+    public void clickChooseFolderButton(Selenium selenium) {
         reporting.writeInfo("  -> Save Basic Email Information");
         selenium.click(By.xpath(chooseFolderButtonXpath));
     }
@@ -76,11 +78,13 @@ public class PardotBasicEmailInformation {
     public void isFolderSelected(Selenium selenium, String folderName) {
         reporting.writeInfo("  -> Verify Folder Field Contains Selected Folder: /" + folderName);
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
-            selenium.throwRuntimeException("Folder Name is Not: /" + folderName);
+            selenium.throwRuntimeException("Folder Name is Not: /" + folderName, true);
+        } else {
+            reporting.writePass("    -> Folder Found");
         }
     }
 
-    public void selectChooseCampaignButton(Selenium selenium) {
+    public void clickChooseCampaignButton(Selenium selenium) {
         reporting.writeInfo("  -> Save Basic Email Information");
         selenium.click(By.xpath(chooseCampaignButtonXpath));
     }
@@ -88,7 +92,9 @@ public class PardotBasicEmailInformation {
     public void isCampaignSelected(Selenium selenium, String campaignName) {
         reporting.writeInfo("  -> Verify Campaign Field Contains Selected Campaign: " + campaignName);
         if (!selenium.getText(By.xpath(campaignFieldXpath)).equals(campaignName)) {
-            selenium.throwRuntimeException("Campaign Name is Not: " + campaignName);
+            selenium.throwRuntimeException("Campaign Name is Not: " + campaignName, true);
+        } else {
+            reporting.writePass("    -> Campaign Found");
         }
     }
 

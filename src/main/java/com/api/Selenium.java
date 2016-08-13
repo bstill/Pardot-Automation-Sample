@@ -8,10 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.api.Reporting;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -28,14 +26,6 @@ public class Selenium {
 
     public Selenium(Reporting reporting) {
         this.reporting = reporting;
-    }
-
-    private void exceptionReportingFatalxxx(Exception e) {
-        reporting.writeFatal("Exception: " + e.getMessage().substring(0, e.getMessage().indexOf("Build info:")));
-    }
-
-    private void exceptionReportingFailxxx(Exception e) {
-        reporting.writeFail("Exception: " + e.getMessage().substring(0, e.getMessage().indexOf("Build info:")), takeScreenshot());
     }
 
     private void cleanup() {
@@ -107,7 +97,7 @@ public class Selenium {
         try {
             wd.switchTo().window(getWindowHandle());
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -146,16 +136,11 @@ public class Selenium {
         }
     }
 
-
-
-
-
-
     public WebElement findElement(By locator) {
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -165,7 +150,7 @@ public class Selenium {
         try {
             return findChildElement(findElement(parentLocator), childLocator);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -175,7 +160,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(element, childLocator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -185,7 +170,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfNestedElementsLocatedBy(parentLocator, childLocator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -196,13 +181,11 @@ public class Selenium {
             return element.findElements(childLocator);
             //return wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(element, childLocator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
     }
-
-
 
     public String getText(By locator) {
         return getText(findElement(locator));
@@ -232,8 +215,6 @@ public class Selenium {
         }
     }
 
-
-
     public WebElement isElementClickable(By locator) {
         return isElementClickable(findElement(locator));
     }
@@ -257,7 +238,7 @@ public class Selenium {
             element.click();
             //findElementClickable(element).click();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -271,7 +252,7 @@ public class Selenium {
         try {
             action.moveToElement(element).doubleClick().build().perform();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -285,7 +266,7 @@ public class Selenium {
         try {
             action.moveToElement(element).build().perform();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -299,7 +280,7 @@ public class Selenium {
         try {
             element.clear();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -313,7 +294,7 @@ public class Selenium {
         try {
             element.sendKeys(text);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -327,7 +308,7 @@ public class Selenium {
         try {
             new Select(element).selectByVisibleText(itemText);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
@@ -347,20 +328,24 @@ public class Selenium {
         }
     }
 
-
-
     public void waitElementInvisible(By locator) {
         try {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
+            reporting.exceptionReportingFail(e.getMessage());
             cleanup();
             throw e;
         }
     }
 
-    public void throwRuntimeException(String message) {
+    public void throwRuntimeException(String message, Boolean takeScreenshot) {
         try {
+            if (takeScreenshot) {
+                reporting.exceptionReportingFail(message, takeScreenshot());
+            } else {
+                reporting.exceptionReportingFail(message);
+            }
+
             throw new RuntimeException (message);
         } catch (RuntimeException e) {
             reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());

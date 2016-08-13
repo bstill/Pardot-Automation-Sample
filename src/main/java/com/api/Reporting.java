@@ -107,4 +107,8 @@ public class Reporting {
     public void exceptionReportingFail(String message, String screenshot) {
         writeFail("Exception: " +message.substring(0, message.indexOf("Build info:")), screenshot.replace(reportPath, ".\\"));
     }
+
+    public void exceptionReportingFail(String message) {
+        writeFail("Exception: " +message.substring(0, message.indexOf("Build info:")));
+    }
 }

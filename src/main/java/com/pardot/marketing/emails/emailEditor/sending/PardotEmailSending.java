@@ -38,12 +38,16 @@ public class PardotEmailSending {
 
         reporting.writeInfo("    -> Verify Email Sending Page Title Contains: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
 
         reporting.writeInfo("    -> Verify Email Name is: " + emailName);
         if (!selenium.getText(By.id(emailNameHeaderId)).contains(emailName)) {
-            selenium.throwRuntimeException("Page Title is Not: " + emailName);
+            selenium.throwRuntimeException("Email Name is Not: " + emailName, true);
+        } else {
+            reporting.writePass("      -> Email Name Found");
         }
     }
 
@@ -82,12 +86,12 @@ public class PardotEmailSending {
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writeInfo("        -> Found List");
+                reporting.writePass("        -> Found List");
                 return;
             }
         }
 
-        selenium.throwRuntimeException("List Not Added to Email To Field: " + listName);
+        selenium.throwRuntimeException("List Not Added to Email To Field: " + listName, true);
     }
 
 

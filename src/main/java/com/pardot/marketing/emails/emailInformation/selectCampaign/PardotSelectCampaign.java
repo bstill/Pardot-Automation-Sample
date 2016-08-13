@@ -33,7 +33,9 @@ public class PardotSelectCampaign {
 
         System.out.println("    -> Verify Select A Campaign Modal Title is: " + modalTitleText);
         if (!selenium.getText(By.xpath(selectFolderModalTitleXpath)).contains(modalTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + modalTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + modalTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
@@ -48,7 +50,7 @@ public class PardotSelectCampaign {
         return selenium.getText(elements.get(index));
     }
 
-    public void selectChooseSelectedButton(Selenium selenium) {
+    public void clickChooseSelectedButton(Selenium selenium) {
         System.out.println("  -> Click Choose Selected Button");
         selenium.click(By.id(chooseSelectedButtonId));
     }

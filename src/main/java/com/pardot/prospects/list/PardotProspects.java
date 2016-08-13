@@ -32,11 +32,13 @@ public class PardotProspects {
 
         reporting.writeInfo("    -> Verify Prospects Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
-    public void selectAddProspectButton(Selenium selenium) {
+    public void clickAddProspectButton(Selenium selenium) {
         reporting.writeInfo("  -> Open Create Prospect Page");
 
         reporting.writeInfo("    -> Click Add Prospect Button");
@@ -57,12 +59,12 @@ public class PardotProspects {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(prospectName)) {
-                reporting.writeInfo("    -> Prospect Found");
+                reporting.writePass("    -> Prospect Found");
                 return;
             }
         }
 
-        selenium.throwRuntimeException("Prospect Not Found: " + prospectName);
+        selenium.throwRuntimeException("Prospect Not Found: " + prospectName, true);
     }
 
 

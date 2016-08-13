@@ -27,11 +27,13 @@ public class PardotSegmentationList {
 
         reporting.writeInfo("    -> Verify List Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
-    public void selectEditListLink(Selenium selenium) {
+    public void clickEditListLink(Selenium selenium) {
         reporting.writeInfo("  -> Open List Information");
 
         reporting.writeInfo("    -> Click Edit List Button");
@@ -48,13 +50,13 @@ public class PardotSegmentationList {
 
             for(WebElement td : cells){
                 if (selenium.getText(td).trim().equals(prospectName)) {
-                    reporting.writeInfo("    -> Found Prospect");
+                    reporting.writePass("    -> Found Prospect");
                     return;
                 }
             }
         }
 
-        selenium.throwRuntimeException("Prospect Not Found: " + prospectName);
+        selenium.throwRuntimeException("Prospect Not Found: " + prospectName, true);
     }
 
 

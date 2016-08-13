@@ -32,11 +32,13 @@ public class PardotDashboard {
 
         reporting.writeInfo("    -> Verify Dashboard Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
-    public void selectMarketingEmails(Selenium selenium) throws InterruptedException {
+    public void clickMarketingEmails(Selenium selenium) throws InterruptedException {
         reporting.writeInfo("  -> Navigate to Marketing\\Emails");
 
         reporting.writeInfo("    -> Hover Over Marketing Menu Item");
@@ -47,7 +49,7 @@ public class PardotDashboard {
         selenium.click(By.linkText(marketingEmailsLinkText));
     }
 
-    public void selectMarketingSegmentationLists(Selenium selenium) throws InterruptedException {
+    public void clickMarketingSegmentationLists(Selenium selenium) throws InterruptedException {
         reporting.writeInfo("  -> Navigate to Marketing\\Segmentation\\Lists");
 
         reporting.writeInfo("    -> Hover Over Marketing Menu Item");
@@ -61,7 +63,7 @@ public class PardotDashboard {
         selenium.click(By.linkText(marketingSegmentationListsMenuLinkText));
     }
 
-    public void selectProspectsProspectList(Selenium selenium) throws InterruptedException {
+    public void clickProspectsProspectList(Selenium selenium) throws InterruptedException {
         reporting.writeInfo("  -> Navigate to Prospects\\Prospect List");
 
         reporting.writeInfo("    -> Hover Over Prospects Menu Item");

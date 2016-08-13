@@ -22,11 +22,13 @@ public class PardotEmails {
 
         reporting.writeInfo("    -> Verify Emails Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
-    public void selectSendListEmailButton(Selenium selenium) {
+    public void clickSendListEmailButton(Selenium selenium) {
         reporting.writeInfo("  -> Open Basic Email Information Modal");
 
         reporting.writeInfo("    -> Click Send List Email Button");

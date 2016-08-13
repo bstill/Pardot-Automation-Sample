@@ -22,11 +22,13 @@ public class PardotProspect {
 
         reporting.writeInfo("    -> Verify Prospect Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
-            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
+            selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
+        } else {
+            reporting.writePass("      -> Page Title Found");
         }
     }
 
-    public void selectListsMenu (Selenium selenium) {
+    public void clickListsMenu (Selenium selenium) {
         reporting.writeInfo("  -> Click Lists Menu Button");
         selenium.click(By.linkText(listMenuButtonLinkText));
     }
