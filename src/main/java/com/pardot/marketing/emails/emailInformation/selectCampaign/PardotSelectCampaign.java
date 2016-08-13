@@ -27,20 +27,20 @@ public class PardotSelectCampaign {
     }
 
     public void isSelectCampaignModalLoaded(Selenium selenium) {
-        System.out.println("..-> Verify Select A Campaign Loaded");
+        System.out.println("---> Verify Select A Campaign Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        System.out.println("....-> Verify Select A Campaign Modal Title is: " + modalTitleText);
+        System.out.println("-----> Verify Select A Campaign Modal Title is: " + modalTitleText);
         if (!selenium.getText(By.xpath(selectFolderModalTitleXpath)).contains(modalTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + modalTitleText, true);
         } else {
-            reporting.writePass("......-> Page Title Found");
+            reporting.writePass("-------> Page Title Found");
         }
     }
 
     public String selectRandomContainer(Selenium selenium) {
-        System.out.println("..-> Select Random Container");
+        System.out.println("---> Select Random Container");
 
         List<WebElement> elements = selenium.findElements(By.id(campaignListContainerId), By.tagName("h4"));
 
@@ -51,7 +51,7 @@ public class PardotSelectCampaign {
     }
 
     public void clickChooseSelectedButton(Selenium selenium) {
-        System.out.println("..-> Click Choose Selected Button");
+        System.out.println("---> Click Choose Selected Button");
         selenium.click(By.id(chooseSelectedButtonId));
     }
 

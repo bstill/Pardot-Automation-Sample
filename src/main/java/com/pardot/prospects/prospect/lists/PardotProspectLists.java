@@ -21,25 +21,25 @@ public class PardotProspectLists {
     }
 
     public void isProspectListsPageLoaded(Selenium selenium) {
-        reporting.writeInfo("..-> Verify Prospect Lists Page Loaded");
+        reporting.writeInfo("---> Verify Prospect Lists Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("....-> Verify Prospect Lists Page Title is: " + pageTitleText);
+        reporting.writeInfo("-----> Verify Prospect Lists Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("......-> Page Title Found");
+            reporting.writePass("-------> Page Title Found");
         }
     }
 
     public void isProspectListExist(Selenium selenium, String listName) {
-        reporting.writeInfo("..-> Verify List Added to Prospect: " + listName);
+        reporting.writeInfo("---> Verify List Added to Prospect: " + listName);
         List<WebElement> elements = selenium.findElements(By.className(listsSelectedContainerClass), By.tagName("li"));
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writePass("....-> Found List");
+                reporting.writePass("-----> Found List");
                 return;
             }
         }

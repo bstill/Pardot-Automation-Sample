@@ -24,28 +24,28 @@ public class PardotSegmentationLists {
     }
 
     public void isSegmentationListsPageLoaded(Selenium selenium) {
-        reporting.writeInfo("..-> Verify Segmentation Lists Page Loaded");
+        reporting.writeInfo("---> Verify Segmentation Lists Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("....-> Verify Sign In Page Title is: " + pageTitleText);
+        reporting.writeInfo("-----> Verify Sign In Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("......-> Page Title Found");
+            reporting.writePass("-------> Page Title Found");
         }
     }
 
     public void clickAddListButton(Selenium selenium) {
-        reporting.writeInfo("..-> Open List Information");
-        reporting.writeInfo("....-> Click Add List Button");
+        reporting.writeInfo("---> Open List Information");
+        reporting.writeInfo("-----> Click Add List Button");
         selenium.click(By.id(addListButtonId));
     }
 
     public void isListExist(Selenium selenium, String listName) {
-        reporting.writeInfo("..-> Verify List Exists");
+        reporting.writeInfo("---> Verify List Exists");
 
-        reporting.writeInfo("....-> Search for List");
+        reporting.writeInfo("-----> Search for List");
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
@@ -55,7 +55,7 @@ public class PardotSegmentationLists {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(listName)) {
-                reporting.writePass("....-> List Found");
+                reporting.writePass("-----> List Found");
                 return;
             }
         }
@@ -64,9 +64,9 @@ public class PardotSegmentationLists {
     }
 
     public void isListNotExist(Selenium selenium, String listName) {
-        reporting.writeInfo("..-> Verify List Does Not Exists");
+        reporting.writeInfo("---> Verify List Does Not Exists");
 
-        reporting.writeInfo("....-> Search for List");
+        reporting.writeInfo("-----> Search for List");
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
@@ -80,19 +80,19 @@ public class PardotSegmentationLists {
             }
         }
 
-        reporting.writePass("....-> List Not Found");
+        reporting.writePass("-----> List Not Found");
     }
 
     public void clickList(Selenium selenium, String listName) {
-        reporting.writeInfo("..-> Select List");
+        reporting.writeInfo("---> Select List");
 
-        reporting.writeInfo("....-> Search for List");
+        reporting.writeInfo("-----> Search for List");
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("....-> Click List");
+        reporting.writeInfo("-----> Click List");
         selenium.click(selenium.findChildElement(By.id(listsTableId), By.linkText(listName)));
     }
 

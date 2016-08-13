@@ -19,27 +19,27 @@ public class PardotEmailBuilding {
     }
 
     public void isEmailBuildingPageLoaded(Selenium selenium, String emailName) {
-        reporting.writeInfo("..-> Verify Email Building Page Loaded");
+        reporting.writeInfo("---> Verify Email Building Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("....-> Verify Email Building Page Title Contains: " + pageTitleText);
+        reporting.writeInfo("-----> Verify Email Building Page Title Contains: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("......-> Page Title Found");
+            reporting.writePass("-------> Page Title Found");
         }
 
-        reporting.writeInfo("....-> Verify Email Name is: " + emailName);
+        reporting.writeInfo("-----> Verify Email Name is: " + emailName);
         if (!selenium.getText(By.id(emailNameHeaderId)).contains(emailName)) {
             selenium.throwRuntimeException("Email is Not: " + emailName, true);
         } else {
-            reporting.writePass("......-> Email Name Found");
+            reporting.writePass("-------> Email Name Found");
         }
     }
 
     public void clickSendingButton(Selenium selenium) {
-        reporting.writeInfo("..-> Click Header Sending Button");
+        reporting.writeInfo("---> Click Header Sending Button");
         selenium.click(By.id(headerSendingButtonId));
     }
 

@@ -21,27 +21,27 @@ public class PardotSegmentationList {
     }
 
     public void isListPageLoaded(Selenium selenium, String pageTitleText) {
-        reporting.writeInfo("..-> Verify List Page Loaded");
+        reporting.writeInfo("---> Verify List Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        reporting.writeInfo("....-> Verify List Page Title is: " + pageTitleText);
+        reporting.writeInfo("-----> Verify List Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("......-> Page Title Found");
+            reporting.writePass("-------> Page Title Found");
         }
     }
 
     public void clickEditListLink(Selenium selenium) {
-        reporting.writeInfo("..-> Open List Information");
+        reporting.writeInfo("---> Open List Information");
 
-        reporting.writeInfo("....-> Click Edit List Button");
+        reporting.writeInfo("-----> Click Edit List Button");
         selenium.click(By.linkText(editListLinkLinkText));
     }
 
     public void isListProspectExist(Selenium selenium, String prospectName) {
-        reporting.writeInfo("..-> Verify Prospect Added to List: " + prospectName);
+        reporting.writeInfo("---> Verify Prospect Added to List: " + prospectName);
 
         List<WebElement> elements = selenium.findElements(By.id(listsContainerId), By.tagName("tr"));
 
@@ -50,7 +50,7 @@ public class PardotSegmentationList {
 
             for(WebElement td : cells){
                 if (selenium.getText(td).trim().equals(prospectName)) {
-                    reporting.writePass("....-> Found Prospect");
+                    reporting.writePass("-----> Found Prospect");
                     return;
                 }
             }
