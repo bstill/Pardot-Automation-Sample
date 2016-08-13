@@ -1,5 +1,6 @@
 package com.pardot.marketing.segmentation.lists;
 
+import com.api.Reporting;
 import com.api.Selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class PardotSegmentationLists {
+    private Reporting reporting;
+
     private String pageTitleText = "Lists";
 
     private String addListButtonId = "listxistx_link_create";
@@ -16,27 +19,31 @@ public class PardotSegmentationLists {
 
     private String waitIndicatorId = "indicator";
 
+    public PardotSegmentationLists(Reporting reporting) {
+        this.reporting = reporting;
+    }
+
     public void isSegmentationListsPageLoaded(Selenium selenium) {
-        System.out.println("  -> Verify Segmentation Lists Page Loaded");
+        reporting.writeInfo("  -> Verify Segmentation Lists Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        System.out.println("    -> Verify Sign In Page Title is: " + pageTitleText);
+        reporting.writeInfo("    -> Verify Sign In Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
         }
     }
 
     public void selectAddListButton(Selenium selenium) {
-        System.out.println("  -> Open List Information");
-        System.out.println("    -> Click Add List Button");
+        reporting.writeInfo("  -> Open List Information");
+        reporting.writeInfo("    -> Click Add List Button");
         selenium.click(By.id(addListButtonId));
     }
 
     public void isListExist(Selenium selenium, String listName) {
-        System.out.println("  -> Verify List Exists");
+        reporting.writeInfo("  -> Verify List Exists");
 
-        System.out.println("    -> Search for List");
+        reporting.writeInfo("    -> Search for List");
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
@@ -46,7 +53,7 @@ public class PardotSegmentationLists {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(listName)) {
-                System.out.println("    -> List Found");
+                reporting.writeInfo("    -> List Found");
                 return;
             }
         }
@@ -55,9 +62,9 @@ public class PardotSegmentationLists {
     }
 
     public void isListNotExist(Selenium selenium, String listName) {
-        System.out.println("  -> Verify List Does Not Exists");
+        reporting.writeInfo("  -> Verify List Does Not Exists");
 
-        System.out.println("    -> Search for List");
+        reporting.writeInfo("    -> Search for List");
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
@@ -71,19 +78,19 @@ public class PardotSegmentationLists {
             }
         }
 
-        System.out.println("    -> List Not Found");
+        reporting.writeInfo("    -> List Not Found");
     }
 
     public void selectList(Selenium selenium, String listName) {
-        System.out.println("  -> Select List");
+        reporting.writeInfo("  -> Select List");
 
-        System.out.println("    -> Search for List");
+        reporting.writeInfo("    -> Search for List");
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        System.out.println("    -> Click List");
+        reporting.writeInfo("    -> Click List");
         selenium.click(selenium.findChildElement(By.id(listsTableId), By.linkText(listName)));
     }
 

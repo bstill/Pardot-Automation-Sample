@@ -3,9 +3,7 @@ package com.pardot.sample.tests;
 import com.api.Reporting;
 import com.generic.RandomData;
 import com.pardot.sample.tests.bb.PardotTest_BB;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import com.api.Selenium;
 
 import java.util.Hashtable;
@@ -24,14 +22,26 @@ public class PardotTest {
         rand = new RandomData();
     }
 
-    @AfterClass
-    public static void runAfterAll(){
+    @Before
+    public void runBeforeEach(){
+
+    }
+
+    @After
+    public void runAfterEach() throws InterruptedException {
         reporting.endTest();
         reporting.flush();
     }
 
+    @AfterClass
+    public static void runAfterAll(){
+        reporting.close();
+    }
+
     @Test
-    public void pardotCreateSegmentationList() throws InterruptedException {
+    public void pardotSampleAutomationExercise() throws InterruptedException {
+        reporting.startTest(Thread.currentThread().getStackTrace()[1].getMethodName(), "This is a sample automation exercise.");
+
         Hashtable options = new Hashtable();
 
         String folderName = rand.getRandomStringAlpha(10);

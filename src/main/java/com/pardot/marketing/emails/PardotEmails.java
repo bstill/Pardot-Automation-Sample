@@ -1,28 +1,35 @@
 package com.pardot.marketing.emails;
 
+import com.api.Reporting;
 import com.api.Selenium;
 import org.openqa.selenium.By;
 
 public class PardotEmails {
+    private Reporting reporting;
+
     private String pageTitleText = "Emails";
     private String sendListEmailButtonXpath = ".//*[@id='em_module']/div[1]/span/a";
     private String waitIndicatorId = "indicator";
 
+    public PardotEmails(Reporting reporting) {
+        this.reporting = reporting;
+    }
+
     public void isEmailsPageLoaded(Selenium selenium) {
-        System.out.println("  -> Verify Emails Page Loaded");
+        reporting.writeInfo("  -> Verify Emails Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        System.out.println("    -> Verify Emails Page Title is: " + pageTitleText);
+        reporting.writeInfo("    -> Verify Emails Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
         }
     }
 
     public void selectSendListEmailButton(Selenium selenium) {
-        System.out.println("  -> Open Basic Email Information Modal");
+        reporting.writeInfo("  -> Open Basic Email Information Modal");
 
-        System.out.println("    -> Click Send List Email Button");
+        reporting.writeInfo("    -> Click Send List Email Button");
         selenium.click(By.xpath(sendListEmailButtonXpath));
     }
 

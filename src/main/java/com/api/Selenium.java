@@ -1,12 +1,17 @@
 package com.api;
 
+import com.generic.RandomData;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.api.Reporting;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +23,21 @@ public class Selenium {
     private Integer pageLoadTimeout = 60;
     private Integer implicitWait = 0;
 
+    private Reporting reporting;
+    private RandomData random = new RandomData();
+
+    public Selenium(Reporting reporting) {
+        this.reporting = reporting;
+    }
+
+    private void exceptionReportingFatalxxx(Exception e) {
+        reporting.writeFatal("Exception: " + e.getMessage().substring(0, e.getMessage().indexOf("Build info:")));
+    }
+
+    private void exceptionReportingFailxxx(Exception e) {
+        reporting.writeFail("Exception: " + e.getMessage().substring(0, e.getMessage().indexOf("Build info:")), takeScreenshot());
+    }
+
     private void cleanup() {
         stop();
     }
@@ -28,7 +48,7 @@ public class Selenium {
             action = new Actions(wd);
             wait = new WebDriverWait(wd, 10, 100);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -38,7 +58,7 @@ public class Selenium {
         try {
             wd.close();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             throw e;
         }
     }
@@ -47,7 +67,7 @@ public class Selenium {
         try {
             wd.get(url);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -62,7 +82,7 @@ public class Selenium {
             pageLoadTimeout = timeout;
             wd.manage().timeouts().pageLoadTimeout(pageLoadTimeout, TimeUnit.SECONDS);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -77,7 +97,7 @@ public class Selenium {
             implicitWait = timeout;
             wd.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -87,7 +107,7 @@ public class Selenium {
         try {
             wd.switchTo().window(getWindowHandle());
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -97,7 +117,7 @@ public class Selenium {
         try {
             return wd.getWindowHandle();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -107,12 +127,24 @@ public class Selenium {
         try {
             return wd.getTitle();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
     }
 
+    public String takeScreenshot() {
+        try {
+            File scrFile = ((TakesScreenshot) wd).getScreenshotAs(OutputType.FILE);
+            String screenshot = reporting.screenshotPath + random.getRandomStringAlphaNumeric(20) + ".png";
+            FileUtils.copyFile(scrFile, new File(screenshot));
+            return screenshot;
+        } catch (Exception e) {
+            reporting.exceptionReportingFatal(e.getMessage());
+            cleanup();
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
@@ -123,7 +155,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -133,7 +165,7 @@ public class Selenium {
         try {
             return findChildElement(findElement(parentLocator), childLocator);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -143,7 +175,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(element, childLocator));
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -153,7 +185,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfNestedElementsLocatedBy(parentLocator, childLocator));
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -164,7 +196,7 @@ public class Selenium {
             return element.findElements(childLocator);
             //return wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(element, childLocator));
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -180,7 +212,7 @@ public class Selenium {
         try {
             return element.getText();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -194,7 +226,7 @@ public class Selenium {
         try {
             return element.getAttribute(attribute);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -210,7 +242,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -225,7 +257,7 @@ public class Selenium {
             element.click();
             //findElementClickable(element).click();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -239,7 +271,7 @@ public class Selenium {
         try {
             action.moveToElement(element).doubleClick().build().perform();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -253,7 +285,7 @@ public class Selenium {
         try {
             action.moveToElement(element).build().perform();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -267,7 +299,7 @@ public class Selenium {
         try {
             element.clear();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -281,7 +313,7 @@ public class Selenium {
         try {
             element.sendKeys(text);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -295,7 +327,7 @@ public class Selenium {
         try {
             new Select(element).selectByVisibleText(itemText);
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -309,7 +341,7 @@ public class Selenium {
         try {
             return element.isSelected();
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFatal(e.getMessage());
             cleanup();
             throw e;
         }
@@ -321,7 +353,7 @@ public class Selenium {
         try {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
         } catch (WebDriverException e) {
-            System.err.println("WebDriverException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }
@@ -331,7 +363,7 @@ public class Selenium {
         try {
             throw new RuntimeException (message);
         } catch (RuntimeException e) {
-            System.err.println("RuntimeException: " + e.getMessage());
+            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }

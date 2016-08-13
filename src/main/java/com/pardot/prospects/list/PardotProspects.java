@@ -1,5 +1,6 @@
 package com.pardot.prospects.list;
 
+import com.api.Reporting;
 import com.api.Selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -7,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class PardotProspects {
+    private Reporting reporting;
+
     private String pageTitleText = "Prospects";
 
     private String addProspectButtonId = "pr_link_create";
@@ -18,28 +21,32 @@ public class PardotProspects {
 
     private String waitIndicatorId = "indicator";
 
+    public PardotProspects(Reporting reporting) {
+        this.reporting = reporting;
+    }
+
     public void isProspectsPageLoaded(Selenium selenium) {
-        System.out.println("  -> Verify Prospects Page Loaded");
+        reporting.writeInfo("  -> Verify Prospects Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        System.out.println("    -> Verify Prospects Page Title is: " + pageTitleText);
+        reporting.writeInfo("    -> Verify Prospects Page Title is: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
         }
     }
 
     public void selectAddProspectButton(Selenium selenium) {
-        System.out.println("  -> Open Create Prospect Page");
+        reporting.writeInfo("  -> Open Create Prospect Page");
 
-        System.out.println("    -> Click Add Prospect Button");
+        reporting.writeInfo("    -> Click Add Prospect Button");
         selenium.click(By.id(addProspectButtonId));
     }
 
     public void isProspectExist(Selenium selenium, String prospectName) {
-        System.out.println("  -> Verify Prospect Exists");
+        reporting.writeInfo("  -> Verify Prospect Exists");
 
-        System.out.println("    -> Search for Prospect");
+        reporting.writeInfo("    -> Search for Prospect");
         selenium.selectByVisibleText(By.id(prospectsFilterDateRangeDropdownId), "Today");
         selenium.clear(By.name(prospectsFilterFieldName));
         selenium.sendKeys(By.name(prospectsFilterFieldName), prospectName);
@@ -50,7 +57,7 @@ public class PardotProspects {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(prospectName)) {
-                System.out.println("    -> Prospect Found");
+                reporting.writeInfo("    -> Prospect Found");
                 return;
             }
         }

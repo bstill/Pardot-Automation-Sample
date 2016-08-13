@@ -1,13 +1,19 @@
 package com.browser;
 
+import com.api.Reporting;
 import com.api.Selenium;
 
 public class PardotBrowser {
+    private Reporting reporting;
+
+    public PardotBrowser(Reporting reporting) {
+        this.reporting = reporting;
+    }
 
     public Selenium startBrowser(String url) {
-        Selenium selenium = new Selenium();
+        Selenium selenium = new Selenium(reporting);
 
-        System.out.println("  -> Initialize Browser: " + url);
+        reporting.writeInfo("  -> Initialize Browser: " + url);
         selenium.start();
         selenium.goUrl(url);
         selenium.setPageLoadTimeout();
@@ -17,10 +23,12 @@ public class PardotBrowser {
     }
 
     public void goUrl(Selenium selenium, String url) {
+        reporting.writeInfo("  -> Go To Url: " + url);
         selenium.goUrl(url);
     }
 
     public void stopBrowser(Selenium selenium) {
+        reporting.writeInfo("  -> Stop Browser");
         selenium.stop();
     }
 

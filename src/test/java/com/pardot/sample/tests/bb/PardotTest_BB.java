@@ -18,8 +18,6 @@ import com.pardot.marketing.segmentation.lists.list.PardotSegmentationList;
 import com.pardot.marketing.segmentation.lists.listInformation.PardotListInformation;
 import com.pardot.marketing.segmentation.lists.listInformation.selectFolder.PardotSelectFolder;
 import com.pardot.marketing.segmentation.lists.PardotSegmentationLists;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 
 import java.util.Hashtable;
 
@@ -32,25 +30,42 @@ public class PardotTest_BB {
     private Selenium selenium;
     private Reporting reporting;
 
-    private PardotBrowser browser = new PardotBrowser();
-    private PardotLogin login = new PardotLogin();
-    private PardotDashboard dashboard = new PardotDashboard();
-    private PardotSegmentationLists segmentationLists = new PardotSegmentationLists();
-    private PardotListInformation segmentationListInformation = new PardotListInformation();
-    private PardotSelectFolder selectFolder = new PardotSelectFolder();
-    private PardotSegmentationList segmentationList = new PardotSegmentationList();
-    private PardotProspects prospects = new PardotProspects();
-    private PardotCreateProspect createProspect = new PardotCreateProspect();
-    private PardotProspect prospect = new PardotProspect();
-    private PardotProspectLists prospectLists = new PardotProspectLists();
-    private PardotEmails emails = new PardotEmails();
-    private PardotBasicEmailInformation basicEmailInformation = new PardotBasicEmailInformation();
-    private PardotSelectCampaign selectCampaign = new PardotSelectCampaign();
-    private PardotEmailBuilding emailBuilding = new PardotEmailBuilding();
-    private PardotEmailSending emailSending = new PardotEmailSending();
+    private PardotBrowser browser;
+    private PardotLogin login;
+    private PardotDashboard dashboard;
+    private PardotSegmentationLists segmentationLists;
+    private PardotListInformation segmentationListInformation;
+    private PardotSelectFolder selectFolder;
+    private PardotSegmentationList segmentationList;
+    private PardotProspects prospects;
+    private PardotCreateProspect createProspect;
+    private PardotProspect prospect;
+    private PardotProspectLists prospectLists;
+    private PardotEmails emails;
+    private PardotBasicEmailInformation basicEmailInformation;
+    private PardotSelectCampaign selectCampaign;
+    private PardotEmailBuilding emailBuilding;
+    private PardotEmailSending emailSending;
 
     public PardotTest_BB (Reporting reporting) {
         this.reporting = reporting;
+
+        browser = new PardotBrowser(this.reporting);
+        login = new PardotLogin(this.reporting);
+        dashboard = new PardotDashboard(this.reporting);
+        segmentationLists = new PardotSegmentationLists(this.reporting);
+        segmentationListInformation = new PardotListInformation(this.reporting);
+        selectFolder = new PardotSelectFolder(this.reporting);
+        segmentationList = new PardotSegmentationList(this.reporting);
+        prospects = new PardotProspects(this.reporting);
+        createProspect = new PardotCreateProspect(this.reporting);
+        prospect = new PardotProspect(this.reporting);
+        prospectLists = new PardotProspectLists(this.reporting);
+        emails = new PardotEmails(this.reporting);
+        basicEmailInformation = new PardotBasicEmailInformation(this.reporting);
+        selectCampaign = new PardotSelectCampaign(this.reporting);
+        emailBuilding = new PardotEmailBuilding(this.reporting);
+        emailSending = new PardotEmailSending(this.reporting);
     }
 
     //Sign Out of the app

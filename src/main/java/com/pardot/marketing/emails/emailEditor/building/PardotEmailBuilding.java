@@ -1,9 +1,12 @@
 package com.pardot.marketing.emails.emailEditor.building;
 
+import com.api.Reporting;
 import com.api.Selenium;
 import org.openqa.selenium.By;
 
 public class PardotEmailBuilding {
+    private Reporting reporting;
+
     private String emailNameHeaderId = "control_name";
     private String pageTitleText = "Building";
 
@@ -11,24 +14,28 @@ public class PardotEmailBuilding {
 
     private String waitIndicatorId = "indicator";
 
+    public PardotEmailBuilding(Reporting reporting) {
+        this.reporting = reporting;
+    }
+
     public void isEmailBuildingPageLoaded(Selenium selenium, String emailName) {
-        System.out.println("  -> Verify Email Building Page Loaded");
+        reporting.writeInfo("  -> Verify Email Building Page Loaded");
 
         selenium.waitElementInvisible(By.id(waitIndicatorId));
 
-        System.out.println("    -> Verify Email Building Page Title Contains: " + pageTitleText);
+        reporting.writeInfo("    -> Verify Email Building Page Title Contains: " + pageTitleText);
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText);
         }
 
-        System.out.println("    -> Verify Email Name is: " + emailName);
+        reporting.writeInfo("    -> Verify Email Name is: " + emailName);
         if (!selenium.getText(By.id(emailNameHeaderId)).contains(emailName)) {
             selenium.throwRuntimeException("Email is Not: " + emailName);
         }
     }
 
     public void selectSendingButton(Selenium selenium) {
-        System.out.println("  -> Click Header Sending Button");
+        reporting.writeInfo("  -> Click Header Sending Button");
         selenium.click(By.id(headerSendingButtonId));
     }
 

@@ -1,12 +1,16 @@
 package com.pardot.marketing.emails.emailInformation.selectCampaign;
 
+import com.api.Reporting;
 import com.api.Selenium;
 import com.generic.RandomData;
+import com.pardot.marketing.segmentation.lists.listInformation.selectFolder.PardotSelectFolder;
 import org.openqa.selenium.*;
 
 import java.util.List;
 
 public class PardotSelectCampaign {
+    private Reporting reporting;
+
     private RandomData random = new RandomData();
 
     private String selectFolderModalTitleXpath = ".//*[@id='asset-chooser-app-modal']/div[1]/h3";
@@ -17,6 +21,10 @@ public class PardotSelectCampaign {
     private String chooseSelectedButtonId = "select-asset";
 
     private String waitIndicatorId = "indicator";
+
+    public PardotSelectCampaign(Reporting reporting) {
+        this.reporting = reporting;
+    }
 
     public void isSelectCampaignModalLoaded(Selenium selenium) {
         System.out.println("  -> Verify Select A Campaign Loaded");
