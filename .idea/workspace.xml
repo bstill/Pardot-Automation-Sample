@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6e11a8a1-13a0-461b-a6fa-b71d58e0b600" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/dashboard/PardotDashboard.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/dashboard/PardotDashboard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/login/PardotLogin.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/login/PardotLogin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/PardotEmails.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/PardotEmails.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/building/PardotEmailBuilding.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/building/PardotEmailBuilding.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/sending/PardotEmailSending.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/sending/PardotEmailSending.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailInformation/PardotBasicEmailInformation.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailInformation/PardotBasicEmailInformation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailInformation/selectCampaign/PardotSelectCampaign.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailInformation/selectCampaign/PardotSelectCampaign.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/PardotSegmentationLists.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/PardotSegmentationLists.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/list/PardotSegmentationList.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/list/PardotSegmentationList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/PardotListInformation.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/PardotListInformation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/selectFolder/PardotSelectFolder.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/selectFolder/PardotSelectFolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/createProspect/PardotCreateProspect.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/createProspect/PardotCreateProspect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/list/PardotProspects.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/list/PardotProspects.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/prospect/lists/PardotProspectLists.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/prospect/lists/PardotProspectLists.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/prospect/overview/PardotProspect.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/prospect/overview/PardotProspect.java" />
-    </list>
+    <list default="true" id="6e11a8a1-13a0-461b-a6fa-b71d58e0b600" name="Default" comment="" />
     <ignored path="Pardot.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1472,7 +1456,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
