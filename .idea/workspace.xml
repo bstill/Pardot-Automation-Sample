@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6e11a8a1-13a0-461b-a6fa-b71d58e0b600" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/building/PardotEmailBuilding.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emaileditor/building/PardotEmailBuilding.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/sending/PardotEmailSending.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emaileditor/sending/PardotEmailSending.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailInformation/PardotBasicEmailInformation.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailinformation/PardotBasicEmailInformation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailInformation/selectCampaign/PardotSelectCampaign.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailinformation/selectcampaign/PardotSelectCampaign.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/PardotListInformation.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listinformation/PardotListInformation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/selectFolder/PardotSelectFolder.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listinformation/selectfolder/PardotSelectFolder.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/createProspect/PardotCreateProspect.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/prospects/createprospect/PardotCreateProspect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailinformation/selectcampaign/PardotSelectCampaign.java" afterPath="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailinformation/selectcampaign/PardotSelectCampaign.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java" afterPath="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java" />
     </list>
     <ignored path="Pardot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +24,28 @@
     <favorites_list name="Pardot" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PardotTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PardotDashboard.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/dashboard/PardotDashboard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -55,7 +70,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/PardotEmailInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/email/information/PardotEmailInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/listInformation/selectFolder/PardotSegmentationListInformationSelectFolder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/list/PardotSegmentationList.java" />
@@ -83,7 +97,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/reporting.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/api/reporting.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/browser/PardotBrowser.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/api/Selenium.java" />
@@ -106,6 +119,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/selectFolder/PardotSelectFolder.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listInformation/PardotListInformation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/prospects/createProspect/PardotCreateProspect.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailinformation/selectcampaign/PardotSelectCampaign.java" />
       </list>
     </option>
   </component>
@@ -336,6 +351,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="pardot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pardot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -843,9 +892,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 09m 16s.xml">
-      <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 11m 47s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
@@ -873,6 +919,9 @@
     <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.14 at 10h 08m 51s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.14 at 12h 28m 54s.xml">
+      <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -885,7 +934,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -899,7 +948,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1196,16 +1245,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/api/Reporting.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1250,22 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
           <caret line="1990" column="93" selection-start-line="1990" selection-start-column="93" selection-end-line="1990" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/browser/PardotBrowser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/dashboard/PardotDashboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1318,14 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emaileditor/building/PardotEmailBuilding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1358,20 +1373,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailinformation/selectcampaign/PardotSelectCampaign.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="40" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/marketing/segmentation/lists/listinformation/selectfolder/PardotSelectFolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1388,6 +1395,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="38" selection-start-line="0" selection-start-column="38" selection-end-line="0" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/browser/PardotBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailinformation/selectcampaign/PardotSelectCampaign.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/dashboard/PardotDashboard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="36" column="33" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
           <folding />
         </state>
       </provider>

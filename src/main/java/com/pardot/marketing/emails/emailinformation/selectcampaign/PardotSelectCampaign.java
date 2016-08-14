@@ -3,7 +3,7 @@ package com.pardot.marketing.emails.emailinformation.selectcampaign;
 import com.api.Reporting;
 import com.api.Selenium;
 import com.generic.RandomData;
-import com.pardot.marketing.segmentation.lists.listInformation.selectFolder.PardotSelectFolder;
+import com.pardot.marketing.segmentation.lists.listinformation.selectfolder.PardotSelectFolder;
 import org.openqa.selenium.*;
 
 import java.util.List;
