@@ -33,14 +33,44 @@ The framework used is one I have developed over my years of automation to facili
 This is a modular 3 tiered approach:
 
 1. Test Case Layer
+     example: 
+          Fill Car with Gas()
 2. Building Block Layer
+     example: 
+          Fill Car with Gas() {
+               Remove Gas Cap from Gas Tank()
+               Verify Gas Cap is Removed()
+               Insert Nozzle into Gas Tank()
+               Verify Nozzle is Inserted()
+               Pump Gas()
+               Verify Gas Tank Full()
+               Remove Nozzle from Gas Tank()
+               Verify Nozzle is Removed()
+               Replace Gas Cap()
+               Verify Gas Cap is Replaced()
+          }
 3. Action Layer
+     example:
+          Remove Gas Cap from Gas Tank() {
+               Turn Gas Cap Counterclockwise
+               Let Gas Cap Dangle
+          }
+               
+          Verify Gas Cap is Removed() {
+               if (Gas Cap is Not in Gas Tank) {
+                    Pass
+               } else {
+                    Fail
+               }  
+          }
 
 ## Installation
 TODO: Describe the installation process
 
 ## Usage
-TODO: Write usage instructions
+Open file file: .\src\test\java\com\pardot\sample\tests\PardotTest.java
+
+Run the test: pardotSampleAutomationExercise
 
 ## Reporting
 Test results will be generated and placed in the ./reports folder.
