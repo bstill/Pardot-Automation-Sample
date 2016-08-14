@@ -338,17 +338,15 @@ public class Selenium {
         }
     }
 
-    public void throwRuntimeException(String message, Boolean takeScreenshot) {
+    public void throwRuntimeException(String message, Boolean useScreenshot) {
         try {
-            if (takeScreenshot) {
+            if (useScreenshot) {
                 reporting.exceptionReportingFail(message, takeScreenshot());
             } else {
                 reporting.exceptionReportingFail(message);
             }
-
             throw new RuntimeException (message);
         } catch (RuntimeException e) {
-            reporting.exceptionReportingFail(e.getMessage(), takeScreenshot());
             cleanup();
             throw e;
         }

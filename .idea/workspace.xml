@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="6e11a8a1-13a0-461b-a6fa-b71d58e0b600" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/api/Reporting.java" afterPath="$PROJECT_DIR$/src/main/java/com/api/Reporting.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/api/Selenium.java" afterPath="$PROJECT_DIR$/src/main/java/com/api/Selenium.java" />
     </list>
     <ignored path="Pardot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,21 +29,9 @@
       <file leaf-file-name="PardotTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="136" column="42" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+            <state relative-caret-position="223">
+              <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PardotTest_BB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="324" column="44" selection-start-line="324" selection-start-column="25" selection-end-line="324" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -104,9 +93,6 @@
         <option value="$PROJECT_DIR$/src/main/java/reporting.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/api/reporting.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/api/Reporting.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/api/Selenium.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/pardot/login/PardotLogin.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/PardotEmails.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/building/PardotEmailBuilding.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailInformation/PardotBasicEmailInformation.java" />
@@ -123,6 +109,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/emailEditor/sending/PardotEmailSending.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/browser/PardotBrowser.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/api/Selenium.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/api/Reporting.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/pardot/login/PardotLogin.java" />
       </list>
     </option>
   </component>
@@ -349,6 +338,100 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pardot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pardot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pardot-Automation-Sample" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -827,34 +910,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.12 at 23h 30m 03s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 19h 55m 35s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.12 at 23h 32m 26s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 19h 58m 45s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.12 at 23h 36m 57s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 00m 41s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.12 at 23h 40m 24s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 03m 38s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 00h 02m 15s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 06m 35s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 09h 06m 53s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 09m 16s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 10h 36m 17s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 11m 47s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 10h 38m 25s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 15m 07s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 11h 05m 06s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 16m 55s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 16h 40m 13s.xml">
+    <history-entry file="PardotTest_pardotSampleAutomationExercise - 2016.08.13 at 20h 18m 35s.xml">
       <configuration name="PardotTest.pardotSampleAutomationExercise" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -1198,22 +1281,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/api/Selenium.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="99" column="59" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/api/Reporting.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="113" column="1" selection-start-line="113" selection-start-column="1" selection-end-line="113" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/marketing/emails/PardotEmails.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1326,14 +1393,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/login/PardotLogin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/reports/Automation_Report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -1351,18 +1410,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/bb/PardotTest_BB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="324" column="44" selection-start-line="324" selection-start-column="25" selection-end-line="324" selection-end-column="44" />
+        <state relative-caret-position="195">
+          <caret line="161" column="0" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/pardot/login/PardotLogin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="43" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/api/Reporting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="102" column="25" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
+          <folding>
+            <element signature="e#3008#3009#0" expanded="true" />
+            <element signature="e#3055#3056#0" expanded="true" />
+            <element signature="e#3273#3274#0" expanded="true" />
+            <element signature="e#3317#3318#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/api/Selenium.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="348" column="38" selection-start-line="348" selection-start-column="38" selection-end-line="348" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/pardot/sample/tests/PardotTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="136" column="42" selection-start-line="136" selection-start-column="42" selection-end-line="136" selection-end-column="42" />
+        <state relative-caret-position="223">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
           <folding />
         </state>
       </provider>

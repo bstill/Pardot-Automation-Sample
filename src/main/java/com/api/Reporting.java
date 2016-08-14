@@ -78,8 +78,7 @@ public class Reporting {
     private void writeLogEntry(LogStatus logStatus, String message, String screenshot) {
         System.out.println(message);
         testReport.log(logStatus, message);
-        testReport.log(logStatus, screenshot);
-        testReport.log(LogStatus.INFO, "Screenshot: " + testReport.addScreenCapture(screenshot));
+        testReport.log(logStatus, "Screenshot: " + testReport.addScreenCapture(screenshot));
     }
 
 
@@ -101,14 +100,14 @@ public class Reporting {
     }
 
     public void exceptionReportingFatal(String message) {
-        writeFatal("Exception: " + message.substring(0, message.indexOf("Build info:")));
+        writeFatal("FATAL: " + message);
     }
 
     public void exceptionReportingFail(String message, String screenshot) {
-        writeFail("Exception: " +message.substring(0, message.indexOf("Build info:")), screenshot.replace(reportPath, ".\\"));
+        writeFail("FAIL: " +message, screenshot.replace(reportPath, ".\\"));
     }
 
     public void exceptionReportingFail(String message) {
-        writeFail("Exception: " +message.substring(0, message.indexOf("Build info:")));
+        writeFail("FAIL: " +message);
     }
 }
