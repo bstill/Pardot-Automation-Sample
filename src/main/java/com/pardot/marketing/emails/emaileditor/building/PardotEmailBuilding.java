@@ -1,4 +1,4 @@
-package com.pardot.marketing.emails.emailEditor.building;
+package com.pardot.marketing.emails.emaileditor.building;
 
 import com.api.Reporting;
 import com.api.Selenium;

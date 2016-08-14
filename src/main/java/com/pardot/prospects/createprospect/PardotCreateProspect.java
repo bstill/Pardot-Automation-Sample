@@ -1,4 +1,4 @@
-package com.pardot.prospects.createProspect;
+package com.pardot.prospects.createprospect;
 
 import com.api.Reporting;
 import com.api.Selenium;

@@ -1,4 +1,4 @@
-package com.pardot.marketing.segmentation.lists.listInformation;
+package com.pardot.marketing.segmentation.lists.listinformation;
 
 import com.api.Reporting;
 import com.api.Selenium;

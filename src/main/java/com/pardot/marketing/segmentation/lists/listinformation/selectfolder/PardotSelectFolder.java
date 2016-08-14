@@ -1,4 +1,4 @@
-package com.pardot.marketing.segmentation.lists.listInformation.selectFolder;
+package com.pardot.marketing.segmentation.lists.listinformation.selectfolder;
 
 import com.api.Reporting;
 import com.api.Selenium;

@@ -1,4 +1,4 @@
-package com.pardot.marketing.emails.emailInformation.selectCampaign;
+package com.pardot.marketing.emails.emailinformation.selectcampaign;
 
 import com.api.Reporting;
 import com.api.Selenium;
