@@ -36,7 +36,7 @@ public class PardotSelectFolder {
         if (!selenium.getText(By.xpath(selectFolderModalTitleXpath)).equals(modalTitleText)) {
             selenium.throwRuntimeException("Modal Title is Not: " + modalTitleText + "(" + selenium.getText(By.xpath(selectFolderModalTitleXpath)) + ")", true);
         } else {
-            reporting.writePass("-------> Modal Title Found");
+            reporting.writePass("-------> PASS: Modal Title Found");
         }
     }
 
@@ -53,7 +53,7 @@ public class PardotSelectFolder {
 
         for(WebElement e : elements){
             if (e.getText().equals(folderName)) {
-                reporting.writePass("-----> Folder Found");
+                reporting.writePass("-----> PASS: Folder Found");
                 return;
             }
         }

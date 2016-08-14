@@ -35,7 +35,7 @@ public class PardotBasicEmailInformation {
         if (!selenium.getText(By.id(listInformationModalTitleId)).contains(modalTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + modalTitleText, true);
         } else {
-            reporting.writePass("-------> Page Title Found");
+            reporting.writePass("-------> PASS: Page Title Found");
         }
     }
 
@@ -80,7 +80,7 @@ public class PardotBasicEmailInformation {
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
             selenium.throwRuntimeException("Folder Name is Not: /" + folderName, true);
         } else {
-            reporting.writePass("-----> Folder Found");
+            reporting.writePass("-----> PASS: Folder Found");
         }
     }
 
@@ -94,7 +94,7 @@ public class PardotBasicEmailInformation {
         if (!selenium.getText(By.xpath(campaignFieldXpath)).equals(campaignName)) {
             selenium.throwRuntimeException("Campaign Name is Not: " + campaignName, true);
         } else {
-            reporting.writePass("-----> Campaign Found");
+            reporting.writePass("-----> PASS: Campaign Found");
         }
     }
 

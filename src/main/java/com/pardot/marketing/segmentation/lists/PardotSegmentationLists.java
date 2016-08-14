@@ -32,7 +32,7 @@ public class PardotSegmentationLists {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> Page Title Found");
+            reporting.writePass("-------> PASS: Page Title Found");
         }
     }
 
@@ -55,7 +55,7 @@ public class PardotSegmentationLists {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(listName)) {
-                reporting.writePass("-----> List Found");
+                reporting.writePass("-----> PASS: List Found");
                 return;
             }
         }
@@ -80,7 +80,7 @@ public class PardotSegmentationLists {
             }
         }
 
-        reporting.writePass("-----> List Not Found");
+        reporting.writePass("-----> PASS: List Not Found");
     }
 
     public void clickList(Selenium selenium, String listName) {

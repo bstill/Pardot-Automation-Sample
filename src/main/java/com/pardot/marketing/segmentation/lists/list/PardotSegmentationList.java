@@ -29,7 +29,7 @@ public class PardotSegmentationList {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> Page Title Found");
+            reporting.writePass("-------> PASS: Page Title Found");
         }
     }
 
@@ -50,7 +50,7 @@ public class PardotSegmentationList {
 
             for(WebElement td : cells){
                 if (selenium.getText(td).trim().equals(prospectName)) {
-                    reporting.writePass("-----> Found Prospect");
+                    reporting.writePass("-----> PASS: Found Prospect");
                     return;
                 }
             }

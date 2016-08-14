@@ -46,14 +46,14 @@ public class PardotCreateProspect {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> Page Title Found");
+            reporting.writePass("-------> PASS: Page Title Found");
         }
 
         reporting.writeInfo("-----> Verify Lists Page Sub Title is: " + pageSubTitleText);
         if (!selenium.getText(By.xpath(createProspectPageSubTitleXpath)).equals(pageSubTitleText)) {
             selenium.throwRuntimeException("Page Sub Title is Not: " + pageSubTitleText, true);
         } else {
-            reporting.writePass("-------> Page Sub Title Found");
+            reporting.writePass("-------> PASS: Page Sub Title Found");
         }
     }
 
@@ -131,7 +131,7 @@ public class PardotCreateProspect {
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writePass("-----> Found List");
+                reporting.writePass("-----> PASS: Found List");
 
                 return;
             }

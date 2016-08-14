@@ -35,7 +35,7 @@ public class PardotSelectCampaign {
         if (!selenium.getText(By.xpath(selectFolderModalTitleXpath)).contains(modalTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + modalTitleText, true);
         } else {
-            reporting.writePass("-------> Page Title Found");
+            reporting.writePass("-------> PASS: Page Title Found");
         }
     }
 
