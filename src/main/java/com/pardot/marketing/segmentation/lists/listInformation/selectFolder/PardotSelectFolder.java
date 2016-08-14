@@ -36,14 +36,14 @@ public class PardotSelectFolder {
         if (!selenium.getText(By.xpath(selectFolderModalTitleXpath)).equals(modalTitleText)) {
             selenium.throwRuntimeException("Modal Title is Not: " + modalTitleText + "(" + selenium.getText(By.xpath(selectFolderModalTitleXpath)) + ")", true);
         } else {
-            reporting.writePass("-------> PASS: Modal Title Found");
+            reporting.writePass("PASS: Modal Title Found");
         }
     }
 
     public void isFolderExist(Selenium selenium, String folderName) {
         reporting.writeInfo("---> Verify Folder Exists");
 
-        reporting.writeInfo("-----> Search for Folder");
+        reporting.writeInfo("-----> Search for Folder: " + folderName);
         selenium.clear(By.cssSelector("Input[class*='" + searchFieldClass + "'"));
         selenium.sendKeys(By.cssSelector("Input[class*='" + searchFieldClass + "'"), folderName);
 
@@ -53,7 +53,7 @@ public class PardotSelectFolder {
 
         for(WebElement e : elements){
             if (e.getText().equals(folderName)) {
-                reporting.writePass("-----> PASS: Folder Found");
+                reporting.writePass("PASS: Folder Found");
                 return;
             }
         }
@@ -64,7 +64,7 @@ public class PardotSelectFolder {
     public void clickFolder(Selenium selenium, String folderName) {
         reporting.writeInfo("---> Select Folder");
 
-        reporting.writeInfo("-----> Search for Folder");
+        reporting.writeInfo("-----> Search for Folder: " + folderName);
         selenium.clear(By.cssSelector("Input[class*='" + searchFieldClass + "'"));
         selenium.sendKeys(By.cssSelector("Input[class*='" + searchFieldClass + "'"), folderName);
 

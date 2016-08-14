@@ -27,14 +27,14 @@ public class PardotEmailBuilding {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> PASS: Page Title Found");
+            reporting.writePass("PASS: Page Title Found");
         }
 
         reporting.writeInfo("-----> Verify Email Name is: " + emailName);
         if (!selenium.getText(By.id(emailNameHeaderId)).contains(emailName)) {
             selenium.throwRuntimeException("Email is Not: " + emailName, true);
         } else {
-            reporting.writePass("-------> PASS: Email Name Found");
+            reporting.writePass("PASS: Email Name Found");
         }
     }
 

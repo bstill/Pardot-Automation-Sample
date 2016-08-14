@@ -40,14 +40,14 @@ public class PardotEmailSending {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> PASS: Page Title Found");
+            reporting.writePass("PASS: Page Title Found");
         }
 
         reporting.writeInfo("-----> Verify Email Name is: " + emailName);
         if (!selenium.getText(By.id(emailNameHeaderId)).contains(emailName)) {
             selenium.throwRuntimeException("Email Name is Not: " + emailName, true);
         } else {
-            reporting.writePass("-------> PASS: Email Name Found");
+            reporting.writePass("PASS: Email Name Found");
         }
     }
 
@@ -86,7 +86,7 @@ public class PardotEmailSending {
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writePass("---------> PASS: Found List");
+                reporting.writePass("PASS: Found List");
                 return;
             }
         }

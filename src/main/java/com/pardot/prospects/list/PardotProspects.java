@@ -34,7 +34,7 @@ public class PardotProspects {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> PASS: Page Title Found");
+            reporting.writePass("PASS: Page Title Found");
         }
     }
 
@@ -48,7 +48,7 @@ public class PardotProspects {
     public void isProspectExist(Selenium selenium, String prospectName) {
         reporting.writeInfo("---> Verify Prospect Exists");
 
-        reporting.writeInfo("-----> Search for Prospect");
+        reporting.writeInfo("-----> Search for Prospect: " + prospectName);
         selenium.selectByVisibleText(By.id(prospectsFilterDateRangeDropdownId), "Today");
         selenium.clear(By.name(prospectsFilterFieldName));
         selenium.sendKeys(By.name(prospectsFilterFieldName), prospectName);
@@ -59,7 +59,7 @@ public class PardotProspects {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(prospectName)) {
-                reporting.writePass("-----> PASS: Prospect Found");
+                reporting.writePass("PASS: Prospect Found");
                 return;
             }
         }

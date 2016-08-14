@@ -32,7 +32,7 @@ public class PardotSegmentationLists {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> PASS: Page Title Found");
+            reporting.writePass("PASS: Page Title Found");
         }
     }
 
@@ -45,7 +45,7 @@ public class PardotSegmentationLists {
     public void isListExist(Selenium selenium, String listName) {
         reporting.writeInfo("---> Verify List Exists");
 
-        reporting.writeInfo("-----> Search for List");
+        reporting.writeInfo("-----> Search for List: " + listName);
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
@@ -55,7 +55,7 @@ public class PardotSegmentationLists {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(listName)) {
-                reporting.writePass("-----> PASS: List Found");
+                reporting.writePass("PASS: List Found");
                 return;
             }
         }
@@ -66,7 +66,7 @@ public class PardotSegmentationLists {
     public void isListNotExist(Selenium selenium, String listName) {
         reporting.writeInfo("---> Verify List Does Not Exists");
 
-        reporting.writeInfo("-----> Search for List");
+        reporting.writeInfo("-----> Search for List: " + listName);
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 
@@ -80,13 +80,13 @@ public class PardotSegmentationLists {
             }
         }
 
-        reporting.writePass("-----> PASS: List Not Found");
+        reporting.writePass("PASS: List Not Found");
     }
 
     public void clickList(Selenium selenium, String listName) {
         reporting.writeInfo("---> Select List");
 
-        reporting.writeInfo("-----> Search for List");
+        reporting.writeInfo("-----> Search for List: " + listName);
         selenium.clear(By.name(listsFilterFieldName));
         selenium.sendKeys(By.name(listsFilterFieldName), listName);
 

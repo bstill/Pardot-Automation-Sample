@@ -24,7 +24,7 @@ public class PardotLogin {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("-------> PASS: Page Title Found");
+            reporting.writePass("PASS: Page Title Found");
         }
     }
 
