@@ -36,13 +36,16 @@ This is a modular 3 tiered approach:
 2. Building Block Layer
 3. Action Layer
 
-
 ## Installation
 TODO: Describe the installation process
+
 ## Usage
 TODO: Write usage instructions
 
+## Reporting
+Test results will be generated and placed in the ./reports folder.
 
+Open the "Automation_Report.html" file to see the current and historical results.
 
 ## Credits
 
