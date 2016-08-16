@@ -40,26 +40,26 @@ public class PardotEmailSending {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("PASS: Page Title Found");
+            reporting.writePass("Page Title Found");
         }
 
         reporting.writeInfo("-----> Verify Email Name is: " + emailName);
         if (!selenium.getText(By.id(emailNameHeaderId)).contains(emailName)) {
             selenium.throwRuntimeException("Email Name is Not: " + emailName, true);
         } else {
-            reporting.writePass("PASS: Email Name Found");
+            reporting.writePass("Email Name Found");
         }
     }
 
     public void clickSendNowButton(Selenium selenium) {
-        reporting.writeInfo("---> Click Send Now Button");
+        reporting.writeStep("---> Click Send Now Button");
 
         reporting.writeInfo("-----> *Email Functionality Disabled");
         selenium.click(By.linkText(sendNowButtonName));
     }
 
     public void enterEmailToFrom(Selenium selenium, String listName, String sender, String subject) {
-        reporting.writeInfo("---> Enter Email To/From/Subject Data");
+        reporting.writeStep("---> Enter Email To/From/Subject Data");
 
         reporting.writeInfo("-----> Enter To: " + listName);
         reporting.writeInfo("-------> Open List Dropdown");
@@ -86,7 +86,7 @@ public class PardotEmailSending {
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writePass("PASS: Found List");
+                reporting.writePass("Found List");
                 return;
             }
         }

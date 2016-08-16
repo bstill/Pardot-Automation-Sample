@@ -34,12 +34,12 @@ public class PardotProspects {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("PASS: Page Title Found");
+            reporting.writePass("Page Title Found");
         }
     }
 
     public void clickAddProspectButton(Selenium selenium) {
-        reporting.writeInfo("---> Open Create Prospect Page");
+        reporting.writeStep("---> Open Create Prospect Page");
 
         reporting.writeInfo("-----> Click Add Prospect Button");
         selenium.click(By.id(addProspectButtonId));
@@ -59,7 +59,7 @@ public class PardotProspects {
 
         for(WebElement e : elements){
             if (selenium.getText(e).contains(prospectName)) {
-                reporting.writePass("PASS: Prospect Found");
+                reporting.writePass("Prospect Found");
                 return;
             }
         }

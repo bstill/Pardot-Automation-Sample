@@ -34,12 +34,12 @@ public class PardotDashboard {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("PASS: Page Title Found");
+            reporting.writePass("Page Title Found");
         }
     }
 
     public void clickMarketingEmails(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("---> Navigate to Marketing\\Emails");
+        reporting.writeStep("---> Navigate to Marketing\\Emails");
 
         reporting.writeInfo("-----> Hover Over Marketing Menu Item");
         selenium.mouseHover(By.id(marketingMenuId));
@@ -50,7 +50,7 @@ public class PardotDashboard {
     }
 
     public void clickMarketingSegmentationLists(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("---> Navigate to Marketing\\Segmentation\\Lists");
+        reporting.writeStep("---> Navigate to Marketing\\Segmentation\\Lists");
 
         reporting.writeInfo("-----> Hover Over Marketing Menu Item");
         selenium.mouseHover(By.id(marketingMenuId));
@@ -64,7 +64,7 @@ public class PardotDashboard {
     }
 
     public void clickProspectsProspectList(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("---> Navigate to Prospects\\Prospect List");
+        reporting.writeStep("---> Navigate to Prospects\\Prospect List");
 
         reporting.writeInfo("-----> Hover Over Prospects Menu Item");
         selenium.mouseHover(By.id(prospectsMenuId));
@@ -75,7 +75,7 @@ public class PardotDashboard {
     }
 
     public void signOut(Selenium selenium) throws InterruptedException {
-        reporting.writeInfo("---> Sign Out of Pardot");
+        reporting.writeStep("---> Sign Out of Pardot");
 
         reporting.writeInfo("-----> Hover Over User Account Menu Item");
         selenium.mouseHover(By.id(userAccountMenuDropdownId));

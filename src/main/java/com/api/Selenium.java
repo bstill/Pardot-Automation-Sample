@@ -140,7 +140,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal("Failed to fine element");
+            reporting.exceptionReportingFatal("Failed to find element");
             cleanup();
             throw e;
         }

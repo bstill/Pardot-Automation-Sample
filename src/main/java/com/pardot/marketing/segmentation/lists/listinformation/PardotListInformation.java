@@ -33,7 +33,7 @@ public class PardotListInformation {
         if (!selenium.getText(By.id(listInformationModalTitleId)).equals(modalTitleText)) {
             selenium.throwRuntimeException("Modal Title is Not: " + modalTitleText, true);
         } else {
-            reporting.writePass("PASS: Modal Title Found");
+            reporting.writePass("Modal Title Found");
         }
     }
 
@@ -44,14 +44,14 @@ public class PardotListInformation {
         if (!selenium.getAttribute(By.name(nameFieldName), "value").equals(listName)) {
             selenium.throwRuntimeException("Name Field Value is Not: " + listName, true);
         } else {
-            reporting.writePass("PASS: Name Found");
+            reporting.writePass("Name Found");
         }
 
         reporting.writeInfo("-----> Verify Folder Field Value: /" + folderName);
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
             selenium.throwRuntimeException("Folder Field Value is Not: /" + folderName, true);
         } else {
-            reporting.writePass("PASS: Folder Found");
+            reporting.writePass("Folder Found");
         }
     }
 
@@ -62,19 +62,19 @@ public class PardotListInformation {
         if (!selenium.getAttribute(By.name(nameFieldName), "value").equals("")) {
             selenium.throwRuntimeException("Name Field Value is Not Blank", true);
         } else {
-            reporting.writePass("PASS: Name Field Blank");
+            reporting.writePass("Name Field Blank");
         }
 
         reporting.writeInfo("-----> Verify Folder Field Value is Default");
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/Uncategorized/Lists")) {
             selenium.throwRuntimeException("Folder Field Value is Not Default", true);
         } else {
-            reporting.writePass("PASS: Folder Field Default");
+            reporting.writePass("Folder Field Default");
         }
     }
 
     public void clickChooseFolderButton(Selenium selenium) {
-        reporting.writeInfo("---> Click Choose Folder Button");
+        reporting.writeStep("---> Click Choose Folder Button");
         selenium.click(By.xpath(chooseFolderButtonXpath));
     }
 
@@ -85,12 +85,12 @@ public class PardotListInformation {
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
             selenium.throwRuntimeException("Folder Field Value is Not: /" + folderName, true);
         } else {
-            reporting.writePass("PASS: Folder Found");
+            reporting.writePass("Folder Found");
         }
     }
 
     public void createList(Selenium selenium, String listName) {
-        reporting.writeInfo("---> Create/Edit Segmentation List");
+        reporting.writeStep("---> Create/Edit Segmentation List");
 
         reporting.writeInfo("-----> Enter List Name: " + listName);
         selenium.clear(By.name(nameFieldName));
@@ -98,7 +98,7 @@ public class PardotListInformation {
     }
 
     public void saveList(Selenium selenium) {
-        reporting.writeInfo("---> Save Segmentation List");
+        reporting.writeStep("---> Save Segmentation List");
         selenium.click(By.id(createListButtonId));
     }
 
@@ -109,14 +109,14 @@ public class PardotListInformation {
         if (!selenium.getText(By.cssSelector("Div[class*='" + createListErrorHeaderClass + "'")).equals(createListHeaderErrorText)) {
             selenium.throwRuntimeException("Header Error Message is Not: " + createListHeaderErrorText, true);
         } else {
-            reporting.writePass("PASS: Header Error Message Found");
+            reporting.writePass("Header Error Message Found");
         }
 
         reporting.writeInfo("-----> Verify Name Error Message is: " + createListDuplicateErrorText);
         if (!selenium.getText(By.id(createListErrorNameId)).equals(createListDuplicateErrorText)) {
             selenium.throwRuntimeException("Name Error Message is Not: " + createListDuplicateErrorText, true);
         } else {
-            reporting.writePass("PASS: Name Error Message Found");
+            reporting.writePass("Name Error Message Found");
         }
     }
 

@@ -13,7 +13,7 @@ public class PardotBrowser {
     public Selenium startBrowser(String url) {
         Selenium selenium = new Selenium(reporting);
 
-        reporting.writeInfo("---> Initialize Browser: " + url);
+        reporting.writeStep("---> Initialize Browser: " + url);
         selenium.start();
         selenium.goUrl(url);
         selenium.setPageLoadTimeout();
@@ -23,12 +23,12 @@ public class PardotBrowser {
     }
 
     public void goUrl(Selenium selenium, String url) {
-        reporting.writeInfo("---> Go To Url: " + url);
+        reporting.writeStep("---> Go To Url: " + url);
         selenium.goUrl(url);
     }
 
     public void stopBrowser(Selenium selenium) {
-        reporting.writeInfo("---> Stop Browser");
+        reporting.writeStep("---> Stop Browser");
         selenium.stop();
     }
 

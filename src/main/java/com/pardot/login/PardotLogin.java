@@ -24,12 +24,12 @@ public class PardotLogin {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("PASS: Page Title Found");
+            reporting.writePass("Page Title Found");
         }
     }
 
     public void loginPardot(Selenium selenium, String userName, String password) {
-        reporting.writeInfo("---> Perform Log In");
+        reporting.writeStep("---> Perform Log In");
 
         reporting.writeInfo("-----> Enter Email/Username: " + userName  );
         selenium.sendKeys(By.id(emailAddressFieldId), userName);

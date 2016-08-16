@@ -46,19 +46,19 @@ public class PardotCreateProspect {
         if (!selenium.getTitle().contains(pageTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + pageTitleText, true);
         } else {
-            reporting.writePass("PASS: Page Title Found");
+            reporting.writePass("Page Title Found");
         }
 
         reporting.writeInfo("-----> Verify Lists Page Sub Title is: " + pageSubTitleText);
         if (!selenium.getText(By.xpath(createProspectPageSubTitleXpath)).equals(pageSubTitleText)) {
             selenium.throwRuntimeException("Page Sub Title is Not: " + pageSubTitleText, true);
         } else {
-            reporting.writePass("PASS: Page Sub Title Found");
+            reporting.writePass("Page Sub Title Found");
         }
     }
 
     public void createProspect(Selenium selenium, String firstName, String lastName, String email, String score, String listName) {
-        reporting.writeInfo("---> Create a New Prospect");
+        reporting.writeStep("---> Create a New Prospect");
 
         reporting.writeInfo("-----> Enter First Name: " + firstName);
         selenium.clear(By.name(firstNameFieldName));
@@ -131,7 +131,7 @@ public class PardotCreateProspect {
 
         for(WebElement e : elements){
             if (selenium.getAttribute(e, "data-name").equals(listName)) {
-                reporting.writePass("PASS: Found List");
+                reporting.writePass("Found List");
 
                 return;
             }
@@ -141,7 +141,7 @@ public class PardotCreateProspect {
     }
 
     public void clickCreateProspectButton (Selenium selenium) {
-        reporting.writeInfo("---> Click Create Prospect Button");
+        reporting.writeStep("---> Click Create Prospect Button");
         selenium.click(By.xpath(createProspectCommitButtonXpath));
     }
 

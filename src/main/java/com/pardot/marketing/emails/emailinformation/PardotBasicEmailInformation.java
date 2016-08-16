@@ -35,12 +35,12 @@ public class PardotBasicEmailInformation {
         if (!selenium.getText(By.id(listInformationModalTitleId)).contains(modalTitleText)) {
             selenium.throwRuntimeException("Page Title is Not: " + modalTitleText, true);
         } else {
-            reporting.writePass("PASS: Page Title Found");
+            reporting.writePass("Page Title Found");
         }
     }
 
     public void createEmail(Selenium selenium, String emailName, String emailType, Boolean useEmailTemplate) {
-        reporting.writeInfo("---> Create Email");
+        reporting.writeStep("---> Create Email");
 
         reporting.writeInfo("-----> Enter Email Name: " + emailName);
         selenium.clear(By.name(nameFieldName));
@@ -66,12 +66,12 @@ public class PardotBasicEmailInformation {
     }
 
     public void clickSaveButton(Selenium selenium) {
-        reporting.writeInfo("---> Save Basic Email Information");
+        reporting.writeStep("---> Save Basic Email Information");
         selenium.click(By.id(saveEmailButtonId));
     }
 
     public void clickChooseFolderButton(Selenium selenium) {
-        reporting.writeInfo("---> Save Basic Email Information");
+        reporting.writeStep("---> Save Basic Email Information");
         selenium.click(By.xpath(chooseFolderButtonXpath));
     }
 
@@ -80,12 +80,12 @@ public class PardotBasicEmailInformation {
         if (!selenium.getText(By.xpath(folderFieldXpath)).equals("/" + folderName)) {
             selenium.throwRuntimeException("Folder Name is Not: /" + folderName, true);
         } else {
-            reporting.writePass("PASS: Folder Found");
+            reporting.writePass("Folder Found");
         }
     }
 
     public void clickChooseCampaignButton(Selenium selenium) {
-        reporting.writeInfo("---> Save Basic Email Information");
+        reporting.writeStep("---> Save Basic Email Information");
         selenium.click(By.xpath(chooseCampaignButtonXpath));
     }
 
@@ -94,7 +94,7 @@ public class PardotBasicEmailInformation {
         if (!selenium.getText(By.xpath(campaignFieldXpath)).equals(campaignName)) {
             selenium.throwRuntimeException("Campaign Name is Not: " + campaignName, true);
         } else {
-            reporting.writePass("PASS: Campaign Found");
+            reporting.writePass("Campaign Found");
         }
     }
 

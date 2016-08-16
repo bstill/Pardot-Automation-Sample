@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static com.relevantcodes.extentreports.DisplayOrder.NEWEST_FIRST;
 import static com.relevantcodes.extentreports.LogStatus.*;
@@ -17,68 +18,77 @@ public class Reporting {
     private ExtentTest testReport;
     private Json json;
     public String reportPath = ".\\reports\\";
-    public String reportFilenameHtml = "Automation_Report.html";
-    public String reportFilenameJson = "Automation_Report.json";
+    public String reportFilenamePrefix = "Automation_Report_";
+    //public String reportFilenameHtml = "Automation_Report.html";
+    //public String reportFilenameJson = "Automation_Report.json";
     public String screenshotPath = ".\\reports\\screenshots\\";
 
+    private String randomUUIDString = UUID.randomUUID().toString();
+
+    private Integer stepCount = 0;
+
     public Reporting() {
-        report = new ExtentReports(reportPath + reportFilenameHtml, false, NEWEST_FIRST, OFFLINE );
-        json = new Json(reportPath, reportFilenameJson);
+        report = new ExtentReports(reportPath + reportFilenamePrefix + randomUUIDString + ".html", false, NEWEST_FIRST, OFFLINE );
+        json = new Json(reportPath, reportFilenamePrefix + randomUUIDString + ".json");
     }
 
     public void writeInfo(String message) {
-        writeLogEntry(INFO, message);
+        writeLogEntry(INFO, message, false);
+    }
+
+    public void writeStep(String message) {
+        writeLogEntry(INFO, message, true);
     }
 
     public void writeError(String message) {
-        writeLogEntry(ERROR, message);
+        writeLogEntry(ERROR, message, false);
     }
 
     public void writeError(String message, String screenshot) {
-        writeLogEntry(ERROR, message, screenshot);
+        writeLogEntry(ERROR, message, screenshot, false);
     }
 
     public void writePass(String message) {
-        writeLogEntry(PASS, message);
+        writeLogEntry(PASS, message, false);
     }
 
     public void writePass(String message, String screenshot) {
-        writeLogEntry(PASS, message, screenshot);
+        writeLogEntry(PASS, message, screenshot, false);
     }
 
     public void writeFail(String message) {
-        writeLogEntry(FAIL, message);
+        writeLogEntry(FAIL, message, false);
     }
 
     public void writeFail(String message, String screenshot) {
-        writeLogEntry(FAIL, message, screenshot);
+        writeLogEntry(FAIL, message, screenshot, false);
     }
 
     public void writeWarning(String message) {
-        writeLogEntry(WARNING, message);
+        writeLogEntry(WARNING, message, false);
     }
 
     public void writeWarning(String message, String screenshot) {
-        writeLogEntry(WARNING, message, screenshot);
+        writeLogEntry(WARNING, message, screenshot, false);
     }
 
     public void writeFatal(String message) {
-        writeLogEntry(FATAL, message);
+        writeLogEntry(FATAL, message, false);
     }
 
     public void writeFatal(String message, String screenshot) {
-        writeLogEntry(FATAL, message, screenshot);
+        writeLogEntry(FATAL, message, screenshot, false);
     }
 
     public void writeSkip(String message) {
-        writeLogEntry(SKIP, message);
+        writeLogEntry(SKIP, message, false);
     }
 
     public void writeSkip(String message, String screenshot) {
-        writeLogEntry(SKIP, message, screenshot);
+        writeLogEntry(SKIP, message, screenshot, false);
     }
 
-    private void writeLogEntry(LogStatus logStatus, String message) {
+    private void writeLogEntry(LogStatus logStatus, String message, Boolean isStep) {
         List<String> list = new ArrayList<String>();
         String key = "";
         String jsonMessage = message;
@@ -89,6 +99,10 @@ public class Reporting {
 
         if (logStatus == FATAL) {
             message = "FATAL: " + message;
+        }
+
+        if (logStatus == PASS) {
+            message = "PASS: " + message;
         }
 
         System.out.println(message);
@@ -112,11 +126,17 @@ public class Reporting {
             case WARNING: json.addValue("Type","Warning");
                 break;
         }
+        if (isStep) {
+            stepCount += 1;
+        }
+        if ((logStatus == PASS) || (logStatus == FAIL) || (logStatus == INFO)) {
+            json.addValue("Step", stepCount);
+        }
         json.addValue("Output", jsonMessage);
         json.addArray();
     }
 
-    private void writeLogEntry(LogStatus logStatus, String message, String screenshot) {
+    private void writeLogEntry(LogStatus logStatus, String message, String screenshot, Boolean isStep) {
         List<String> list = new ArrayList<String>();
         String key = "";
         String jsonMessage = message;
@@ -127,6 +147,10 @@ public class Reporting {
 
         if (logStatus == FATAL) {
             message = "FATAL: " + message;
+        }
+
+        if (logStatus == PASS) {
+            message = "PASS: " + message;
         }
 
         System.out.println(message);
@@ -151,6 +175,12 @@ public class Reporting {
             case WARNING: json.addValue("Type","Warning");
                 break;
         }
+        if (isStep) {
+            stepCount += 1;
+        }
+        if ((logStatus == PASS) || (logStatus == FAIL) || (logStatus == INFO)) {
+            json.addValue("Step", stepCount);
+        }
         json.addValue("Output", jsonMessage);
         json.addValue("Screenshot", screenshot);
         json.addArray();
@@ -158,8 +188,10 @@ public class Reporting {
 
     public void startTest(String testName, String description) {
         testReport = report.startTest(testName, description);
+        testReport.log(INFO, "Test Identifier: " + randomUUIDString);
         json.addValue("TestCase", testName);
         json.addValue("Description", description);
+        json.addValue("Identifier", randomUUIDString);
         json.addArray();
     }
 

@@ -36,7 +36,7 @@ public class PardotSelectFolder {
         if (!selenium.getText(By.xpath(selectFolderModalTitleXpath)).equals(modalTitleText)) {
             selenium.throwRuntimeException("Modal Title is Not: " + modalTitleText + "(" + selenium.getText(By.xpath(selectFolderModalTitleXpath)) + ")", true);
         } else {
-            reporting.writePass("PASS: Modal Title Found");
+            reporting.writePass("Modal Title Found");
         }
     }
 
@@ -53,7 +53,7 @@ public class PardotSelectFolder {
 
         for(WebElement e : elements){
             if (e.getText().equals(folderName)) {
-                reporting.writePass("PASS: Folder Found");
+                reporting.writePass("Folder Found");
                 return;
             }
         }
@@ -62,7 +62,7 @@ public class PardotSelectFolder {
     }
 
     public void clickFolder(Selenium selenium, String folderName) {
-        reporting.writeInfo("---> Select Folder");
+        reporting.writeStep("---> Select Folder");
 
         reporting.writeInfo("-----> Search for Folder: " + folderName);
         selenium.clear(By.cssSelector("Input[class*='" + searchFieldClass + "'"));
@@ -84,12 +84,12 @@ public class PardotSelectFolder {
     }
 
     public void clickCreateFolderButton(Selenium selenium) {
-        reporting.writeInfo("-----> Click Add Folder Button");
+        reporting.writeStep("-----> Click Add Folder Button");
         selenium.click(By.xpath(addFolderButtonXpath));
     }
 
     public void addNewFolder (Selenium selenium, String folderName) {
-        reporting.writeInfo("---> Add Folder");
+        reporting.writeStep("---> Add Folder");
 
         reporting.writeInfo("-----> Enter Folder Name");
         selenium.clear(By.cssSelector("Input[class*='" + addNewFolderNameFieldClass + "'"));
@@ -100,7 +100,7 @@ public class PardotSelectFolder {
     }
 
     public void clickChooseSelectedButton(Selenium selenium) {
-        reporting.writeInfo("-----> Click Choose Selected Button");
+        reporting.writeStep("-----> Click Choose Selected Button");
         selenium.click(By.id(chooseSelectedButtonId));
     }
 
