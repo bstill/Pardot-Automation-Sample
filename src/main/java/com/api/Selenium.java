@@ -38,7 +38,7 @@ public class Selenium {
             action = new Actions(wd);
             wait = new WebDriverWait(wd, 10, 100);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to start browser");
             cleanup();
             throw e;
         }
@@ -48,7 +48,7 @@ public class Selenium {
         try {
             wd.close();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to terminate browser");
             throw e;
         }
     }
@@ -57,7 +57,7 @@ public class Selenium {
         try {
             wd.get(url);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to get: " + url);
             cleanup();
             throw e;
         }
@@ -72,7 +72,7 @@ public class Selenium {
             pageLoadTimeout = timeout;
             wd.manage().timeouts().pageLoadTimeout(pageLoadTimeout, TimeUnit.SECONDS);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to set pageLoadTimeout");
             cleanup();
             throw e;
         }
@@ -87,7 +87,7 @@ public class Selenium {
             implicitWait = timeout;
             wd.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to set implicitlyWait");
             cleanup();
             throw e;
         }
@@ -97,7 +97,7 @@ public class Selenium {
         try {
             wd.switchTo().window(getWindowHandle());
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to switch to window");
             cleanup();
             throw e;
         }
@@ -107,7 +107,7 @@ public class Selenium {
         try {
             return wd.getWindowHandle();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to get window handle");
             cleanup();
             throw e;
         }
@@ -117,7 +117,7 @@ public class Selenium {
         try {
             return wd.getTitle();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to get window title");
             cleanup();
             throw e;
         }
@@ -130,7 +130,7 @@ public class Selenium {
             FileUtils.copyFile(scrFile, new File(screenshot));
             return screenshot;
         } catch (Exception e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to take screenshot");
             cleanup();
             throw new RuntimeException(e);
         }
@@ -140,7 +140,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to fine element");
             cleanup();
             throw e;
         }
@@ -150,7 +150,7 @@ public class Selenium {
         try {
             return findChildElement(findElement(parentLocator), childLocator);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to find child element");
             cleanup();
             throw e;
         }
@@ -160,7 +160,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(element, childLocator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to find child element");
             cleanup();
             throw e;
         }
@@ -170,7 +170,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.presenceOfNestedElementsLocatedBy(parentLocator, childLocator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to find elements");
             cleanup();
             throw e;
         }
@@ -181,7 +181,7 @@ public class Selenium {
             return element.findElements(childLocator);
             //return wait.until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(element, childLocator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to find elements");
             cleanup();
             throw e;
         }
@@ -195,7 +195,7 @@ public class Selenium {
         try {
             return element.getText();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to get text");
             cleanup();
             throw e;
         }
@@ -209,7 +209,7 @@ public class Selenium {
         try {
             return element.getAttribute(attribute);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to get attribute");
             cleanup();
             throw e;
         }
@@ -223,7 +223,7 @@ public class Selenium {
         try {
             return wait.until(ExpectedConditions.elementToBeClickable(element));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to check is clickable");
             cleanup();
             throw e;
         }
@@ -238,7 +238,7 @@ public class Selenium {
             element.click();
             //findElementClickable(element).click();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to click");
             cleanup();
             throw e;
         }
@@ -252,7 +252,7 @@ public class Selenium {
         try {
             action.moveToElement(element).doubleClick().build().perform();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to double click");
             cleanup();
             throw e;
         }
@@ -266,7 +266,7 @@ public class Selenium {
         try {
             action.moveToElement(element).build().perform();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to mouse hover");
             cleanup();
             throw e;
         }
@@ -280,7 +280,7 @@ public class Selenium {
         try {
             element.clear();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to clear");
             cleanup();
             throw e;
         }
@@ -294,7 +294,7 @@ public class Selenium {
         try {
             element.sendKeys(text);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to send keys");
             cleanup();
             throw e;
         }
@@ -308,7 +308,7 @@ public class Selenium {
         try {
             new Select(element).selectByVisibleText(itemText);
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFatal("Failed to select by visible text");
             cleanup();
             throw e;
         }
@@ -322,7 +322,7 @@ public class Selenium {
         try {
             return element.isSelected();
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFatal(e.getMessage());
+            reporting.exceptionReportingFail("Failed to check if selected");
             cleanup();
             throw e;
         }
@@ -332,7 +332,7 @@ public class Selenium {
         try {
             wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
         } catch (WebDriverException e) {
-            reporting.exceptionReportingFail(e.getMessage());
+            reporting.exceptionReportingFail("Failed to wait for element invisible");
             cleanup();
             throw e;
         }

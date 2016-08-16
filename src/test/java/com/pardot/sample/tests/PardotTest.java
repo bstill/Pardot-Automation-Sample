@@ -1,11 +1,13 @@
 package com.pardot.sample.tests;
 
+import com.api.Json;
 import com.api.Reporting;
 import com.generic.RandomData;
 import com.pardot.sample.tests.bb.PardotTest_BB;
 import org.junit.*;
 import com.api.Selenium;
 
+import java.io.IOException;
 import java.util.Hashtable;
 
 public class PardotTest {
@@ -28,13 +30,13 @@ public class PardotTest {
     }
 
     @After
-    public void runAfterEach() throws InterruptedException {
+    public void runAfterEach() throws InterruptedException, IOException {
         reporting.endTest();
         reporting.flush();
     }
 
     @AfterClass
-    public static void runAfterAll(){
+    public static void runAfterAll() throws IOException {
         reporting.close();
     }
 
